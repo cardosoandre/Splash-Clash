@@ -5,15 +5,14 @@ public class PlayerWaterLevel : MonoBehaviour {
 	public int score;
 
 	void OnTriggerEnter(Collider other) {
-		if (other.tag == "Balloon") { //balloon can be changed to specifc color tag
+		if (other.tag == "BlueBalloon") { //balloon can be changed to specifc color tag
 			score = score + 1; 
-			Debug.Log ("Object destroyed = " + (other.gameObject));
+			Debug.Log ("Score = " + score);
 	
 		}
 	}
 
 		void Update (){
-		Debug.Log ("Score = " + score);
 
 		}
 }

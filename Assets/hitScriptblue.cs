@@ -7,6 +7,7 @@ public class hitScriptblue: MonoBehaviour {
 	private GameObject playerScript;
 	private GameObject hitText;
 
+
 	// Use this for initialization
 	void Start () {
 
