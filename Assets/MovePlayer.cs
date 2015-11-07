@@ -45,14 +45,5 @@ public class MovePlayer : MonoBehaviour {
 				transform.Translate (Vector3.forward * verticalSpeed * Time.deltaTime);
 			}
 		}
-
-
-		if (Input.GetKeyDown(KeyCode.Space)) {
-			Shooting = true;
-			Instantiate (balloonBall, shooter.position, shooter.rotation);
-
-		} else {
-			Shooting = false;
-		}
 	}
 }
