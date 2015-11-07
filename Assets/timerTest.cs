@@ -20,7 +20,7 @@ public class timerTest : MonoBehaviour {
 		RedPlayer = GameObject.Find ("Player Girl");
 
 
-		startTime = 10;
+		startTime = 80;
 		timer = GetComponent<Text>();
 		
 	}
