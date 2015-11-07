@@ -8,7 +8,7 @@ public class MovePlayer : MonoBehaviour {
 	public bool Shooting = false;
 	public GameObject balloonBall;
 	public Transform shooter;
-
+	public GameObject Player;
 	// Use this for initialization
 	void Start () {
 		
@@ -50,6 +50,7 @@ public class MovePlayer : MonoBehaviour {
 		if (Input.GetKeyDown(KeyCode.Space)) {
 			Shooting = true;
 			Instantiate (balloonBall, shooter.position, shooter.rotation);
+
 		} else {
 			Shooting = false;
 		}
