@@ -21,7 +21,7 @@ public class MovePlayer2 : MonoBehaviour {
 	void Update () {
 
 		if (Input.GetKey (KeyCode.LeftArrow)) {
-			if (transform.position.x >= -1.2f) {
+			if (transform.position.x >= 0.114f) {
 				transform.Translate (-Vector3.right * horizontalSpeed * Time.deltaTime);
 			}
 		}
@@ -48,8 +48,9 @@ public class MovePlayer2 : MonoBehaviour {
 		}
 		
 		if (Input.GetKeyDown (KeyCode.RightShift)) {
-			GameObject myBallon = Instantiate (balloonBall, shooter.position, shooter.rotation) as GameObject;
+			GameObject myBallon = Instantiate (balloonBall, shooter.position, shooter.rotation) as GameObject;	
 			myBallon.GetComponent<Rigidbody> ().AddForce (-transform.right * thrust + transform.up * upthrust);
+
 		}
 		} 
 	}
