@@ -8,6 +8,7 @@ public class hitBluePlayer : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 	
+	
 	}
 
 	void OnTriggerEnter(Collider other) {
