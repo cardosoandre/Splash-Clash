@@ -7,6 +7,9 @@ namespace BasicExample
 {
 	public class CubeController : MonoBehaviour
 	{
+		void Start() {
+			print (InputManager.Devices.Count);
+		}
 		void Update()
 		{
 			// Use last device which provided input.

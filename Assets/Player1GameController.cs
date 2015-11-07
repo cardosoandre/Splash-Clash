@@ -8,6 +8,6 @@ public class Player1GameController : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
     var InputDevice = InputManager.ActiveDevice;
-		Debug.Log (InputDevice);
+		Debug.Log (Input.GetJoystickNames());
 	}
 }
