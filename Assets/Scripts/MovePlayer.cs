@@ -9,29 +9,22 @@ public class MovePlayer : MonoBehaviour {
 	public bool facingLeft;
 	public GameObject balloonBall;
 	public Transform shooter;
-<<<<<<< HEAD
 	public float throwForce;
-=======
->>>>>>> 389898cfd4a263a6a2b5ffef5bc7c8dc19c4971a
 	public Transform shooter2;
 	public float thrust;
 	public float upthrust;
 	public float linethrust;
 	public float timePress;
-
 	private GameObject indicator;
-
 	private bool isShooting = false;
-
-
 	public bool force1;
 	public bool force2;
 	public bool force3;
-<<<<<<< HEAD
 
-=======
+
+
 	
->>>>>>> 389898cfd4a263a6a2b5ffef5bc7c8dc19c4971a
+
 
 	// Use this for initialization
 	void Start () {
@@ -49,18 +42,18 @@ public class MovePlayer : MonoBehaviour {
 		
 //======================= MOVEMENT =======================================================//
 
-<<<<<<< HEAD
+
 
 
 
 		if (Input.GetKey (KeyCode.A)) {
 
 		    if (Input.GetKey (KeyCode.A) && isShooting == false) {
-=======
+
 
 		if (Input.GetKey (KeyCode.A) && isShooting == false) {
 
->>>>>>> 389898cfd4a263a6a2b5ffef5bc7c8dc19c4971a
+
 
 			facingLeft = true;
 			facingRight = false;
@@ -91,11 +84,9 @@ public class MovePlayer : MonoBehaviour {
 			}
 		}
 
-<<<<<<< HEAD
+
 		if (Input.GetKeyUp(KeyCode.Space)) {
 			GameObject myBalloon = Instantiate (balloonBall, shooter.position, shooter.rotation) as GameObject;
-=======
->>>>>>> 389898cfd4a263a6a2b5ffef5bc7c8dc19c4971a
 
 //======================= SHOOT =======================================================//
 
@@ -208,9 +199,8 @@ public class MovePlayer : MonoBehaviour {
 		}
 	  }
 	}
-<<<<<<< HEAD
   }
 }
-=======
+
 }
->>>>>>> 389898cfd4a263a6a2b5ffef5bc7c8dc19c4971a
+
