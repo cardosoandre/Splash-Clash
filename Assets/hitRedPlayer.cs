@@ -1,27 +1,25 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class PlayerWaterLevel : MonoBehaviour {
+public class hitRedPlayer : MonoBehaviour {
+
 	public int bluescore;
-	public int redscore;
+
+	// Use this for initialization
+	void Start () {
+	
+	}
 
 	void OnTriggerEnter(Collider other) {
 		if (other.tag == "BlueBalloon") { //balloon can be changed to specifc color tag
 			bluescore = bluescore + 1; 
 			Debug.Log ("Blue Score = " + bluescore);
-	
-		}
-
-		if (other.tag == "RedBalloon") { //balloon can be changed to specifc color tag
-			redscore = redscore + 1; 
-			Debug.Log ("Red Score = " + redscore);
 			
 		}
-
-
 	}
-
-		void Update (){
-
-		}
+	
+	// Update is called once per frame
+	void Update () {
+	
+	}
 }
