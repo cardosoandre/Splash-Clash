@@ -19,7 +19,6 @@ public class MovePlayer : MonoBehaviour {
 
 	private bool isShooting = false;
 
-
 	public bool force1;
 	public bool force2;
 	public bool force3;
