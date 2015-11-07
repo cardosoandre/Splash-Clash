@@ -9,10 +9,6 @@ public class MovePlayer : MonoBehaviour {
 	public bool facingLeft;
 	public GameObject balloonBall;
 	public Transform shooter;
-<<<<<<< HEAD
-	public float throwForce;
-	public bool canThrow;
-=======
 	public Transform shooter2;
 	public float thrust;
 	public float upthrust;
@@ -27,8 +23,7 @@ public class MovePlayer : MonoBehaviour {
 	public bool force1;
 	public bool force2;
 	public bool force3;
-
->>>>>>> 8e10576c9b01c9188577851f3b2add4d2e77bf27
+	
 
 	// Use this for initialization
 	void Start () {
@@ -46,13 +41,9 @@ public class MovePlayer : MonoBehaviour {
 		
 //======================= MOVEMENT =======================================================//
 
-<<<<<<< HEAD
-		canThrow = gameObject.GetComponent<MoveBalloon> ().canThrow;
 
-		if (Input.GetKey (KeyCode.A)) {
-=======
 		if (Input.GetKey (KeyCode.A) && isShooting == false) {
->>>>>>> 8e10576c9b01c9188577851f3b2add4d2e77bf27
+
 
 			facingLeft = true;
 			facingRight = false;
@@ -83,10 +74,7 @@ public class MovePlayer : MonoBehaviour {
 			}
 		}
 
-<<<<<<< HEAD
-		if (Input.GetKeyUp(KeyCode.Space) && canThrow == true) {
-			GameObject myBalloon = Instantiate (balloonBall, shooter.position, shooter.rotation) as GameObject;
-=======
+
 //======================= SHOOT =======================================================//
 
 
@@ -194,7 +182,6 @@ public class MovePlayer : MonoBehaviour {
 				myBallon.GetComponent<Rigidbody> ().AddForce (-transform.right * thrust + transform.up * upthrust);
 			}
 			
->>>>>>> 8e10576c9b01c9188577851f3b2add4d2e77bf27
 		}
 
 	}
