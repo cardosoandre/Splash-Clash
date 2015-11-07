@@ -57,7 +57,6 @@ public class MovePlayer : MonoBehaviour {
 				transform.Translate (Vector3.forward * verticalSpeed * Time.deltaTime);
 			}
 		}
-<<<<<<< HEAD
 
 
 		if (Input.GetKeyDown (KeyCode.Space)) {
@@ -70,8 +69,5 @@ public class MovePlayer : MonoBehaviour {
 			}
 
 		}
-
-=======
->>>>>>> 5c152e339f21ad14ccb2470873d723ca6aa892fa
 	}
 }
