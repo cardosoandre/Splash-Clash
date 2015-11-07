@@ -5,14 +5,17 @@ public class MovePlayer : MonoBehaviour {
 
 	public float horizontalSpeed;
 	public float verticalSpeed;
-	public bool facingRight = true;
+	public bool facingRight;
 	public bool facingLeft;
 	public GameObject balloonBall;
 	public Transform shooter;
 	public float thrust;
+	public float upthrust;
 
 	// Use this for initialization
 	void Start () {
+
+		facingRight = true;
 		
 	}
 	
@@ -62,7 +65,7 @@ public class MovePlayer : MonoBehaviour {
 		if (Input.GetKeyDown (KeyCode.Space)) {
 			GameObject myBallon = Instantiate (balloonBall, shooter.position, shooter.rotation) as GameObject;
 			if (facingRight == true){
-			myBallon.GetComponent<Rigidbody> ().AddForce (transform.right * thrust);
+			myBallon.GetComponent<Rigidbody> ().AddForce (transform.right * thrust + transform.up * upthrust);
 			}
 			if (facingLeft == true){
 			myBallon.GetComponent<Rigidbody> ().AddForce (-transform.right * thrust);
