@@ -17,6 +17,8 @@ public class MovePlayer : MonoBehaviour {
 
 	private GameObject indicator;
 
+	private bool isShooting = false;
+
 
 	public bool force1;
 	public bool force2;
@@ -39,7 +41,7 @@ public class MovePlayer : MonoBehaviour {
 		
 //======================= MOVEMENT =======================================================//
 
-		if (Input.GetKey (KeyCode.A)) {
+		if (Input.GetKey (KeyCode.A) && isShooting == false) {
 
 			facingLeft = true;
 			facingRight = false;
@@ -49,7 +51,7 @@ public class MovePlayer : MonoBehaviour {
 				transform.Translate (-Vector3.right * horizontalSpeed * Time.deltaTime);
 			}
 		}
-		if (Input.GetKey (KeyCode.D)) {
+		if (Input.GetKey (KeyCode.D) && isShooting == false) {
 
 			facingRight = true;
 			facingLeft = false;
@@ -59,12 +61,12 @@ public class MovePlayer : MonoBehaviour {
 				transform.Translate (Vector3.right * horizontalSpeed * Time.deltaTime);
 			}
 		}
-		if (Input.GetKey (KeyCode.S)) {
+		if (Input.GetKey (KeyCode.S) && isShooting == false) {
 			if (transform.position.z >= 0.105f) {
 				transform.Translate (-Vector3.forward * verticalSpeed * Time.deltaTime);
 			}
 		}
-		if (Input.GetKey (KeyCode.W)) {
+		if (Input.GetKey (KeyCode.W) && isShooting == false) {
 			if (transform.position.z <= 2.1f) {
 				transform.Translate (Vector3.forward * verticalSpeed * Time.deltaTime);
 			}
@@ -74,6 +76,8 @@ public class MovePlayer : MonoBehaviour {
 
 
 		if (Input.GetKey (KeyCode.Space) || Input.GetKey (KeyCode.LeftShift)) {
+
+			isShooting = true;
 
 			timePress += 1;
 			//print (timePress);
@@ -115,8 +119,9 @@ public class MovePlayer : MonoBehaviour {
 		// =================================================
 
 		if (Input.GetKeyUp (KeyCode.Space)) {
-		
 
+			isShooting = false;
+		
 			if (force1 == true) {
 				linethrust = 5;
 			}
@@ -145,6 +150,8 @@ public class MovePlayer : MonoBehaviour {
 
 
 		if (Input.GetKeyUp (KeyCode.LeftShift)) {
+
+			isShooting = false;
 
 			if (force1 == true) {
 				upthrust = 10;

@@ -17,7 +17,6 @@ public class hitScriptred : MonoBehaviour {
 
 	void OnTriggerEnter(Collider other) {
 		if (other.tag == "Player") {
-			print(other);
 			Destroy (gameObject);
 			Instantiate(splash, transform.position, transform.rotation);
 			other.GetComponent<Animator>().Play("player 1 white flash");
