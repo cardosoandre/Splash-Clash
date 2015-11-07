@@ -11,6 +11,7 @@ public class MovePlayer : MonoBehaviour {
 	public Transform shooter;
 	public float thrust;
 	public float upthrust;
+	public float linethrust;
 
 	// Use this for initialization
 	void Start () {
@@ -62,15 +63,27 @@ public class MovePlayer : MonoBehaviour {
 		}
 
 
-		if (Input.GetKeyDown (KeyCode.Space)) {
+		if (Input.GetKeyDown (KeyCode.Space) || Input.GetButtonDown ("XPS4")) {
 			GameObject myBallon = Instantiate (balloonBall, shooter.position, shooter.rotation) as GameObject;
 			if (facingRight == true){
-			myBallon.GetComponent<Rigidbody> ().AddForce (transform.right * thrust + transform.up * upthrust);
+			myBallon.GetComponent<Rigidbody> ().AddForce (transform.right * linethrust);
 			}
 			if (facingLeft == true){
-			myBallon.GetComponent<Rigidbody> ().AddForce (-transform.right * thrust);
+			myBallon.GetComponent<Rigidbody> ().AddForce (-transform.right * linethrust);
 			}
 
 		}
+
+		if (Input.GetKeyDown (KeyCode.LeftShift)) {
+			GameObject myBallon = Instantiate (balloonBall, shooter.position, shooter.rotation) as GameObject;
+			if (facingRight == true){
+				myBallon.GetComponent<Rigidbody> ().AddForce (transform.right * thrust + transform.up * upthrust);
+			}
+			if (facingLeft == true){
+				myBallon.GetComponent<Rigidbody> ().AddForce (-transform.right * thrust + transform.up * upthrust);
+			}
+			
+		}
+
 	}
 }

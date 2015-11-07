@@ -8,6 +8,9 @@ public class MovePlayer2 : MonoBehaviour {
 	public bool Shooting = false;
 	public GameObject balloonBall;
 	public Transform shooter;
+	public float thrust;
+	public float upthrust;
+	public float linethrust;
 
 	// Use this for initialization
 	void Start () {
@@ -38,9 +41,16 @@ public class MovePlayer2 : MonoBehaviour {
 			}
 		}
 
-
-		if (Input.GetKeyDown(KeyCode.Space)) {
-			//Instantiate (balloonBall, shooter.position, shooter.rotation);
+		if (Input.GetKeyDown (KeyCode.RightAlt)) {
+			GameObject myBallon = Instantiate (balloonBall, shooter.position, shooter.rotation) as GameObject;
+			myBallon.GetComponent<Rigidbody> ().AddForce (-transform.right * linethrust);
+			
+		}
+		
+		if (Input.GetKeyDown (KeyCode.RightShift)) {
+			GameObject myBallon = Instantiate (balloonBall, shooter.position, shooter.rotation) as GameObject;
+			myBallon.GetComponent<Rigidbody> ().AddForce (-transform.right * thrust + transform.up * upthrust);
+		}
 		} 
 	}
-}
+

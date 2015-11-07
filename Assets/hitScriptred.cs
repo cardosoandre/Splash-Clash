@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class hitScript : MonoBehaviour {
+public class hitScriptred : MonoBehaviour {
 
 	public GameObject splash;
 
@@ -16,10 +16,11 @@ public class hitScript : MonoBehaviour {
 	}
 
 	void OnTriggerEnter(Collider other) {
-		if (other.tag == "Balloon") {
+		if (other.tag == "Player") {
 			print(other);
-			Destroy (other);
+			Destroy (gameObject);
 			Instantiate(splash, transform.position, transform.rotation);
+			other.GetComponent<Animator>().Play("player 1 white flash");
 		}
 	}
 
