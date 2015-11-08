@@ -1,27 +1,27 @@
 fileFormatVersion: 2
-guid: ad74f9f6f4bc6439d84454cc3f536868
-timeCreated: 1446996594
+guid: ce8bbfcd5917b43adb626459d0d6149d
+timeCreated: 1447010590
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: blue team 1_0
-    21300002: blue team 1_1
-    21300004: blue team 1_2
-    21300006: blue team 1_3
-    21300008: blue team 1_4
-    21300010: blue team 1_5
-    21300012: blue team 1_6
-    21300014: blue team 1_7
-    21300016: blue team 1_8
-    21300018: blue team 1_9
-    21300020: blue team 1_10
-    21300022: blue team 1_11
-    21300024: blue team 1_12
-    21300026: blue team 1_13
-    21300028: blue team 1_14
-    21300030: blue team 1_15
-    21300032: blue team 1_16
-    21300034: blue team 1_17
+    21300000: blue team player 3_0
+    21300002: blue team player 3_1
+    21300004: blue team player 3_2
+    21300006: blue team player 3_3
+    21300008: blue team player 3_4
+    21300010: blue team player 3_5
+    21300012: blue team player 3_6
+    21300014: blue team player 3_7
+    21300016: blue team player 3_8
+    21300018: blue team player 3_9
+    21300020: blue team player 3_10
+    21300022: blue team player 3_11
+    21300024: blue team player 3_12
+    21300026: blue team player 3_13
+    21300028: blue team player 3_14
+    21300030: blue team player 3_15
+    21300032: blue team player 3_16
+    21300034: blue team player 3_17
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -67,7 +67,7 @@ TextureImporter:
   buildTargetSettings: []
   spriteSheet:
     sprites:
-    - name: blue team 1_0
+    - name: blue team player 3_0
       rect:
         serializedVersion: 2
         x: 7
@@ -75,9 +75,9 @@ TextureImporter:
         width: 19
         height: 44
       alignment: 0
-      pivot: {x: .5, y: .5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: blue team 1_1
+    - name: blue team player 3_1
       rect:
         serializedVersion: 2
         x: 30
@@ -85,9 +85,9 @@ TextureImporter:
         width: 19
         height: 44
       alignment: 0
-      pivot: {x: .5, y: .5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: blue team 1_2
+    - name: blue team player 3_2
       rect:
         serializedVersion: 2
         x: 7
@@ -95,9 +95,9 @@ TextureImporter:
         width: 19
         height: 44
       alignment: 0
-      pivot: {x: .5, y: .5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: blue team 1_3
+    - name: blue team player 3_3
       rect:
         serializedVersion: 2
         x: 30
@@ -105,19 +105,19 @@ TextureImporter:
         width: 19
         height: 44
       alignment: 0
-      pivot: {x: .5, y: .5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: blue team 1_4
+    - name: blue team player 3_4
       rect:
         serializedVersion: 2
         x: 53
         y: 234
         width: 19
-        height: 44
+        height: 43
       alignment: 0
-      pivot: {x: .5, y: .5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: blue team 1_5
+    - name: blue team player 3_5
       rect:
         serializedVersion: 2
         x: 74
@@ -125,9 +125,9 @@ TextureImporter:
         width: 19
         height: 44
       alignment: 0
-      pivot: {x: .5, y: .5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: blue team 1_6
+    - name: blue team player 3_6
       rect:
         serializedVersion: 2
         x: 6
@@ -135,19 +135,19 @@ TextureImporter:
         width: 24
         height: 44
       alignment: 0
-      pivot: {x: .5, y: .5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: blue team 1_7
+    - name: blue team player 3_7
       rect:
         serializedVersion: 2
-        x: 34
+        x: 38
         y: 181
-        width: 24
+        width: 19
         height: 44
       alignment: 0
-      pivot: {x: .5, y: .5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: blue team 1_8
+    - name: blue team player 3_8
       rect:
         serializedVersion: 2
         x: 60
@@ -155,9 +155,9 @@ TextureImporter:
         width: 24
         height: 43
       alignment: 0
-      pivot: {x: .5, y: .5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: blue team 1_9
+    - name: blue team player 3_9
       rect:
         serializedVersion: 2
         x: 6
@@ -165,9 +165,9 @@ TextureImporter:
         width: 19
         height: 44
       alignment: 0
-      pivot: {x: .5, y: .5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: blue team 1_10
+    - name: blue team player 3_10
       rect:
         serializedVersion: 2
         x: 33
@@ -175,9 +175,9 @@ TextureImporter:
         width: 19
         height: 44
       alignment: 0
-      pivot: {x: .5, y: .5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: blue team 1_11
+    - name: blue team player 3_11
       rect:
         serializedVersion: 2
         x: 57
@@ -185,9 +185,9 @@ TextureImporter:
         width: 19
         height: 44
       alignment: 0
-      pivot: {x: .5, y: .5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: blue team 1_12
+    - name: blue team player 3_12
       rect:
         serializedVersion: 2
         x: 9
@@ -195,9 +195,9 @@ TextureImporter:
         width: 24
         height: 44
       alignment: 0
-      pivot: {x: .5, y: .5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: blue team 1_13
+    - name: blue team player 3_13
       rect:
         serializedVersion: 2
         x: 41
@@ -205,9 +205,9 @@ TextureImporter:
         width: 19
         height: 44
       alignment: 0
-      pivot: {x: .5, y: .5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: blue team 1_14
+    - name: blue team player 3_14
       rect:
         serializedVersion: 2
         x: 63
@@ -215,37 +215,37 @@ TextureImporter:
         width: 25
         height: 43
       alignment: 0
-      pivot: {x: .5, y: .5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: blue team 1_15
+    - name: blue team player 3_15
       rect:
         serializedVersion: 2
         x: 6
         y: 22
-        width: 26
+        width: 25
         height: 44
       alignment: 0
-      pivot: {x: .5, y: .5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: blue team 1_16
+    - name: blue team player 3_16
       rect:
         serializedVersion: 2
-        x: 35
+        x: 41
         y: 22
-        width: 26
+        width: 19
         height: 44
       alignment: 0
-      pivot: {x: .5, y: .5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: blue team 1_17
+    - name: blue team player 3_17
       rect:
         serializedVersion: 2
-        x: 65
+        x: 71
         y: 22
-        width: 26
+        width: 20
         height: 44
       alignment: 0
-      pivot: {x: .5, y: .5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
   spritePackingTag: 
   userData: 
