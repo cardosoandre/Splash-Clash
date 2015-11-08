@@ -39,11 +39,11 @@ public class timerTest : MonoBehaviour {
 			timer.text = ("TIME!");
 
 			if(RedPlayer.GetComponent<hitRedPlayer>().bluescore > BluePlayer.GetComponent<hitBluePlayer>().redscore){
-				print("BLUE TEAM WON");
+				Application.LoadLevel("Blue Team Wins");
 			}
 
 			if(RedPlayer.GetComponent<hitRedPlayer>().bluescore < BluePlayer.GetComponent<hitBluePlayer>().redscore){
-				print("RED TEAM WON");
+				Application.LoadLevel("Red Team Wins");
 			}
 		
 			
