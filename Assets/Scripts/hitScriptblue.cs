@@ -4,15 +4,11 @@ using System.Collections;
 public class hitScriptblue: MonoBehaviour {
 
 	public GameObject splash; 
-	private GameObject playerScript;
-	private GameObject hitText;
 
 
 	// Use this for initialization
 	void Start () {
 
-		playerScript = GameObject.Find ("Player Boy");
-		hitText = GameObject.Find ("hitMe");
 
 	}
 	
@@ -32,10 +28,10 @@ public class hitScriptblue: MonoBehaviour {
 		if (other.tag == "Floor") {
 			//Destroy (gameObject);
 			//Instantiate(splash, transform.position, transform.rotation);
-			if (playerScript.GetComponent<MovePlayer>().force1 == true){
+			//if (playerScript.GetComponent<MovePlayer>().force1 == true){
 
 
-			}else{
+			//}else{
 				Destroy (gameObject);
 				Instantiate(splash, transform.position, transform.rotation);
 			}
@@ -43,5 +39,3 @@ public class hitScriptblue: MonoBehaviour {
 
 	}
 
-
-}
