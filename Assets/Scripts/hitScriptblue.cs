@@ -37,7 +37,6 @@ public class hitScriptblue: MonoBehaviour {
 			//Destroy (gameObject);
 			//Instantiate(splash, transform.position, transform.rotation);
 			if (playerScript.GetComponent<MovePlayer>().force1 == true){
-				//Destroy (gameObject, 5);
 
 
 			}else{
