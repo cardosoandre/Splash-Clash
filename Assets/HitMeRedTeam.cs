@@ -12,7 +12,7 @@ public class HitMeRedTeam : MonoBehaviour {
 	}
 	
 	void OnTriggerEnter(Collider other) {
-		if (other.tag == "RedBalloon") { //balloon can be changed to specifc color tag
+		if (other.tag == "BlueBalloon") { //balloon can be changed to specifc color tag
 			bluescore = bluescore + 1; 
 			Debug.Log ("Blue Score = " + bluescore);
 			
