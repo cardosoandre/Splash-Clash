@@ -1,8 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class MovePlayer : MonoBehaviour {
-	
+public class MovePlayerTestFill : MonoBehaviour {
+
 	public float horizontalSpeed;
 	public float verticalSpeed;
 	public bool facingRight;
@@ -82,7 +82,6 @@ public class MovePlayer : MonoBehaviour {
 		if ((Input.GetKey (KeyCode.Space) || Input.GetKey (KeyCode.LeftShift)) && isFilled == true)  {
 			
 			isShooting = true;
-
 			
 			timePress += 1;
 			//print (timePress);
@@ -123,10 +122,9 @@ public class MovePlayer : MonoBehaviour {
 		
 		// =================================================
 		
-		if (Input.GetKeyUp (KeyCode.Space)  && isFilled == true) {
+		if (Input.GetKeyUp (KeyCode.Space)) {
 			
 			isShooting = false;
-			isFilled = false;
 			
 			if (force1 == true) {
 				linethrust = 5;
@@ -151,17 +149,13 @@ public class MovePlayer : MonoBehaviour {
 			if (facingLeft == true){
 				myBallon.GetComponent<Rigidbody> ().AddForce (-transform.right * linethrust + transform.up * 10);
 			}
-
-		
-		
 			
 		}
 		
 		
-		if (Input.GetKeyUp (KeyCode.LeftShift) && isFilled == true) {
+		if (Input.GetKeyUp (KeyCode.LeftShift)) {
 			
 			isShooting = false;
-			isFilled = false;
 			
 			if (force1 == true) {
 				upthrust = 10;
