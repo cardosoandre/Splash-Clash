@@ -119,8 +119,12 @@ public class MovBluPlay1 : MonoBehaviour {
 
 	void OnTriggerStay(Collider other){
 		if (other.CompareTag("Pump") && Input.GetKey (KeyCode.F) == true) {
+			if (isFilled == false){
+			other.GetComponent<Animator>().SetInteger("State",1);
+			}
 			pumpTime = pumpTime +1; 
 			if (pumpTime >= 80){
+			other.GetComponent<Animator>().SetInteger("State",0);
 			isFilled = true;
 			Debug.Log ("Filled? " + isFilled);
 			}

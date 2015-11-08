@@ -5,14 +5,13 @@ public class hitScriptblue1: MonoBehaviour {
 
 	public GameObject splash; 
 	private GameObject playerScript;
-	private GameObject hitText;
+
 
 
 	// Use this for initialization
 	void Start () {
 
 		playerScript = GameObject.Find ("Blue Play 1");
-		hitText = GameObject.Find ("hitMe");
 
 	}
 	
@@ -27,9 +26,6 @@ public class hitScriptblue1: MonoBehaviour {
 		if (other.tag == "Player 2") {
 			Destroy (gameObject);
 			Instantiate (splash, transform.position, transform.rotation);
-			hitText.GetComponent<TextMesh> ().text = ("OMG HIT!");
-		} else {
-			hitText.GetComponent<TextMesh> ().text = ("hm..");
 		}
 			
 
