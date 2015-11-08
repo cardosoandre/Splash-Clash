@@ -19,7 +19,6 @@ public class hitScriptred : MonoBehaviour {
 		if (other.tag == "Player") {
 			Destroy (gameObject);
 			Instantiate(splash, transform.position, transform.rotation);
-			other.GetComponent<Animator>().Play("player 1 white flash");
 		}
 
 		if (other.tag == "Floor") {
