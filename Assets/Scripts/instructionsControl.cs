@@ -13,7 +13,7 @@ public class instructionsControl : MonoBehaviour {
 	
 		if (Input.GetKey (KeyCode.X)) {
 			
-			Application.LoadLevel("Andre");
+			Application.LoadLevel("FINAL TEST SCENE");
 			
 		}
 
