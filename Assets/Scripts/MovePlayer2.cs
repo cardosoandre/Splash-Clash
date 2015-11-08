@@ -14,6 +14,7 @@ public class MovePlayer2 : MonoBehaviour {
 	public float upthrust;
 	public float linethrust;
 	public float timePress;
+	public bool isFilled;
 	
 	//private GameObject indicator;
 	
@@ -86,7 +87,7 @@ public class MovePlayer2 : MonoBehaviour {
 		}
 
 
-		if (Input.GetKeyUp (KeyCode.RightAlt)) {
+		if (Input.GetKeyUp (KeyCode.RightAlt) && isFilled == true) {
 
 			isShooting = false;
 			
@@ -110,7 +111,7 @@ public class MovePlayer2 : MonoBehaviour {
 			
 		}
 		
-		if (Input.GetKeyUp (KeyCode.RightShift)) {
+		if (Input.GetKeyUp (KeyCode.RightShift) && isFilled == true) {
 
 			isShooting = false;
 			
@@ -141,5 +142,11 @@ public class MovePlayer2 : MonoBehaviour {
 
 
 		} 
+	void OnTriggerStay(Collider other){
+		if (other.CompareTag("Pump") && Input.GetKey (KeyCode.L) == true) { //Test play with this button?
+			isFilled = true;
+			Debug.Log ("Filled? " + isFilled);
+		}
+	}
 	}
 
