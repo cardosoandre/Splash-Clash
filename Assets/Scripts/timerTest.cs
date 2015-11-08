@@ -28,7 +28,11 @@ public class timerTest : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		
-		timeLeft =  startTime - Time.time ;
+		timeLeft = startTime;
+
+		startTime = startTime - 0.016f;
+
+
 		//print (timeLeft);
 		//timer.text = timeLeft.ToString("#.00");
 		timer.text = timeLeft.ToString("#");
