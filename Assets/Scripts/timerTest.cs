@@ -44,12 +44,15 @@ public class timerTest : MonoBehaviour {
 
 			if(RedPlayer.GetComponent<hitRedPlayer>().bluescore > BluePlayer.GetComponent<hitBluePlayer>().redscore){
 				Application.LoadLevel("Blue Team Wins");
-			}
+			} 
 
 			if(RedPlayer.GetComponent<hitRedPlayer>().bluescore < BluePlayer.GetComponent<hitBluePlayer>().redscore){
 				Application.LoadLevel("Red Team Wins");
+			} 
+
+			if(RedPlayer.GetComponent<hitRedPlayer>().bluescore == BluePlayer.GetComponent<hitBluePlayer>().redscore){
+				Application.LoadLevel("Draw Scene");
 			}
-		
 			
 		}
 		
