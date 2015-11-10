@@ -14,7 +14,12 @@ public class MovRedPlay2 : MonoBehaviour {
 	
 	public float pumpTime;
 
+	public float upLimit;
+	public float downLimit;
+	public float leftLimit;
+	public float rightLimit;
 	
+
 	// Use this for initialization
 	void Start () {
 		
@@ -42,7 +47,7 @@ public class MovRedPlay2 : MonoBehaviour {
 			
 			transform.localScale = new Vector3 (xscale, transform.localScale.y, transform.localScale.z);
 			GetComponent<Animator> ().SetInteger ("State", 2);
-			if (transform.position.x <= 1.2f) {
+			if (transform.position.x <= rightLimit) {
 				transform.Translate (Vector3.right * Xspeed * Time.deltaTime);
 			}
 		} else if (Input.GetKey (KeyCode.C) && isFilled == false && GetComponent<ShootRedPlay2>().isShooting == false) {
@@ -53,7 +58,7 @@ public class MovRedPlay2 : MonoBehaviour {
 			
 			transform.localScale = new Vector3 (-xscale, transform.localScale.y, transform.localScale.z);
 			GetComponent<Animator> ().SetInteger ("State", 2);
-			if (transform.position.x >= 0.11f) {
+			if (transform.position.x >= leftLimit) {
 				transform.Translate (-Vector3.right * Xspeed * Time.deltaTime);
 			}
 		} else if(!isFilled && balloonPop) {
@@ -62,13 +67,13 @@ public class MovRedPlay2 : MonoBehaviour {
 		
 		if (Input.GetKey (KeyCode.X) && isFilled == false && GetComponent<ShootRedPlay2>().isShooting == false) {
 			GetComponent<Animator> ().SetInteger ("State", 2);
-			if (transform.position.z >= 0.105f) {
+			if (transform.position.z >= downLimit) {
 				transform.Translate (-Vector3.forward * Yspeed * Time.deltaTime);
 			}
 		}
 		if (Input.GetKey (KeyCode.Z) && isFilled == false && GetComponent<ShootRedPlay2>().isShooting == false) {
 			GetComponent<Animator> ().SetInteger ("State", 2);
-			if (transform.position.z <= 2.1f) {
+			if (transform.position.z <= upLimit) {
 				transform.Translate (Vector3.forward * Yspeed * Time.deltaTime);
 			}
 		}
@@ -86,7 +91,7 @@ public class MovRedPlay2 : MonoBehaviour {
 			
 			transform.localScale = new Vector3 (xscale, transform.localScale.y, transform.localScale.z);
 			GetComponent<Animator> ().SetInteger ("State", 6);
-			if (transform.position.x <= 1.2f) {
+			if (transform.position.x <= rightLimit) {
 				transform.Translate (Vector3.right * Xspeed * Time.deltaTime);
 			}
 		} else if (Input.GetKey (KeyCode.C) && isFilled == true && GetComponent<ShootRedPlay2>().isShooting == false) {
@@ -96,7 +101,7 @@ public class MovRedPlay2 : MonoBehaviour {
 			
 			transform.localScale = new Vector3 (-xscale, transform.localScale.y, transform.localScale.z);
 			GetComponent<Animator> ().SetInteger ("State", 6);
-			if (transform.position.x >= 0.11f) {
+			if (transform.position.x >= leftLimit) {
 				transform.Translate (-Vector3.right * Xspeed * Time.deltaTime);
 			}
 		} else if (isFilled == true)  {
@@ -105,13 +110,13 @@ public class MovRedPlay2 : MonoBehaviour {
 		
 		if (Input.GetKey (KeyCode.X) && isFilled == true && GetComponent<ShootRedPlay2>().isShooting == false) {
 			GetComponent<Animator> ().SetInteger ("State", 6);
-			if (transform.position.z >= 0.105f) {
+			if (transform.position.z >= downLimit) {
 				transform.Translate (-Vector3.forward * Yspeed * Time.deltaTime);
 			}
 		}
 		if (Input.GetKey (KeyCode.Z) && isFilled == true && GetComponent<ShootRedPlay2>().isShooting == false) {
 			GetComponent<Animator> ().SetInteger ("State", 6);
-			if (transform.position.z <= 2.1f) {
+			if (transform.position.z <= upLimit) {
 				transform.Translate (Vector3.forward * Yspeed * Time.deltaTime);
 			}
 		}
@@ -119,18 +124,22 @@ public class MovRedPlay2 : MonoBehaviour {
 	}
 	
 	void OnTriggerStay(Collider other){
-		if (other.CompareTag("Pump") && Input.GetKey (KeyCode.G) == true) {
+
+		if (other.CompareTag("Pump") && Input.GetKey (KeyCode.G)) {
 			if (isFilled == false){
 				other.GetComponent<Animator>().SetInteger("State",1);
 			}
+			GetComponent<ShootRedPlay2>().isShooting = true;
 			pumpTime = pumpTime +1; 
 			if (pumpTime >= 80){
+				GetComponent<ShootRedPlay2>().isShooting = false;
 				other.GetComponent<Animator>().SetInteger("State",0);
 				isFilled = true;
 				Debug.Log ("Filled? " + isFilled);
 			}
 		}
 		if (Input.GetKeyUp(KeyCode.G)) {
+			GetComponent<ShootRedPlay2>().isShooting = false;
 			pumpTime = 0;
 		}
 	}
