@@ -1,10 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class hitScriptblue: MonoBehaviour {
+public class hitScriptblue1: MonoBehaviour {
 
 	public GameObject splash; 
-
 
 	// Use this for initialization
 	void Start () {
@@ -24,18 +23,14 @@ public class hitScriptblue: MonoBehaviour {
 			Destroy (gameObject);
 			Instantiate (splash, transform.position, transform.rotation);
 		}
+			
 
 		if (other.tag == "Floor") {
-			//Destroy (gameObject);
-			//Instantiate(splash, transform.position, transform.rotation);
-			//if (playerScript.GetComponent<MovePlayer>().force1 == true){
-
-
-			//}else{
-				Destroy (gameObject);
-				Instantiate(splash, transform.position, transform.rotation);
-			}
+			Destroy (gameObject);
+			Instantiate(splash, transform.position, transform.rotation);
 			}
 
 	}
 
+
+}

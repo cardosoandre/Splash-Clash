@@ -10,6 +10,16 @@ public class HitMeBlueTeam : MonoBehaviour {
 		
 		
 	}
+
+	void Update (){
+
+		if (Input.GetKeyDown(KeyCode.Q)){
+			GetComponent<Animator>().SetInteger("State", 10);
+		}
+
+
+
+	}
 	
 	void OnTriggerEnter(Collider other) {
 		if (other.tag == "RedBalloon") { //balloon can be changed to specifc color tag

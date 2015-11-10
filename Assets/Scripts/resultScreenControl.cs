@@ -13,7 +13,7 @@ public class resultScreenControl : MonoBehaviour {
 
 		if (Input.GetKey (KeyCode.C)) {
 
-			Application.LoadLevel("Andre");
+			Application.LoadLevel("FINAL TEST SCENE");
 
 		}
 

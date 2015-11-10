@@ -7,17 +7,20 @@ public class timerTest : MonoBehaviour {
 	public float startTime = 60;
 	private float timeLeft;
 	Text timer;
-	public GameObject BluePlayer;
-	public GameObject RedPlayer;
-
-	
+	private GameObject BluePlayer;
+	private GameObject RedPlayer;
+	private GameObject BluePlayer2;
+	private GameObject RedPlayer2;
 	
 	// Use this for initialization
 	void Start () {
 
 
-		BluePlayer = GameObject.Find ("Player Boy");
-		RedPlayer = GameObject.Find ("Player Girl");
+		BluePlayer = GameObject.Find ("Blue Play 1");
+		RedPlayer = GameObject.Find ("Red Play 2");
+		BluePlayer2 = GameObject.Find ("Blue Play 3");
+		RedPlayer2 = GameObject.Find ("Red Play 4");
+
 
 
 		startTime = 80;
@@ -42,15 +45,24 @@ public class timerTest : MonoBehaviour {
 
 			timer.text = ("TIME!");
 
-			if(RedPlayer.GetComponent<hitRedPlayer>().bluescore > BluePlayer.GetComponent<hitBluePlayer>().redscore){
+			if(RedPlayer.GetComponent<HitMeRedTeam>().bluescore + 
+			   RedPlayer2.GetComponent<HitMeRedTeam>().bluescore >
+			   BluePlayer.GetComponent<HitMeBlueTeam>().redscore +
+			   BluePlayer2.GetComponent<HitMeBlueTeam>().redscore) {
 				Application.LoadLevel("Blue Team Wins");
 			} 
 
-			if(RedPlayer.GetComponent<hitRedPlayer>().bluescore < BluePlayer.GetComponent<hitBluePlayer>().redscore){
+			if(RedPlayer.GetComponent<HitMeRedTeam>().bluescore + 
+			   RedPlayer2.GetComponent<HitMeRedTeam>().bluescore <
+			   BluePlayer.GetComponent<HitMeBlueTeam>().redscore +
+			   BluePlayer2.GetComponent<HitMeBlueTeam>().redscore) {
 				Application.LoadLevel("Red Team Wins");
 			} 
 
-			if(RedPlayer.GetComponent<hitRedPlayer>().bluescore == BluePlayer.GetComponent<hitBluePlayer>().redscore){
+			if(RedPlayer.GetComponent<HitMeRedTeam>().bluescore + 
+			   RedPlayer2.GetComponent<HitMeRedTeam>().bluescore ==
+			   BluePlayer.GetComponent<HitMeBlueTeam>().redscore +
+			   BluePlayer2.GetComponent<HitMeBlueTeam>().redscore) {
 				Application.LoadLevel("Draw Scene");
 			}
 			
