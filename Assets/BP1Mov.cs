@@ -26,6 +26,7 @@ public class BP1Mov : MonoBehaviour {
 	public float fillPitch = 1;
 
 	public GameObject balloonBall;
+	public GameObject finishFillSound;
 
 	public Transform UPp;
 	public Transform DOWNp;
@@ -217,6 +218,7 @@ public class BP1Mov : MonoBehaviour {
 				isFilling = false;
 				pumpTime = 0;
 				fillPitch = 1;
+				Instantiate(finishFillSound, transform.position, transform.rotation);
 			}
 			if (Input.GetKeyDown (keyFILL)) {
 				other.GetComponent<AudioSource> ().Play ();
@@ -267,6 +269,8 @@ public class BP1Mov : MonoBehaviour {
 		if (Input.GetKeyUp (keySHOOT) && hasBalloon == true && Input.GetKey (keyFILL) == false
 		    && isFilling == false) {
 
+			GetComponent<AudioSource>().Play();
+
 			GameObject myBallon = Instantiate (balloonBall, UPp.position, UPp.rotation) as GameObject;
 			if (faceRight == true) {
 				myBallon.GetComponent<Rigidbody> ().AddForce (transform.right * pressTime + transform.up * 10);
@@ -278,6 +282,8 @@ public class BP1Mov : MonoBehaviour {
 
 			if (Input.GetKeyUp (keySHOOT) && Input.GetKey (keyFILL) && hasBalloon == true
 		    && isFilling == false) {
+
+			GetComponent<AudioSource>().Play();
 			
 			GameObject myBallon = Instantiate (balloonBall, UPp.position, UPp.rotation) as GameObject;
 			if (faceRight == true) {
