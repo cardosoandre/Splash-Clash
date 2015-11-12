@@ -163,7 +163,7 @@ public class BP1Mov : MonoBehaviour {
 		
 		if (Input.GetKey (keySHOOT) && isFilling == false && hasBalloon == true) {
 			pressTime = pressTime + 1.5f;
-			print(pressTime);
+			//print(pressTime);
 			Xspeed = 0.5f;
 			Yspeed = 1;
 
@@ -209,11 +209,11 @@ public class BP1Mov : MonoBehaviour {
 		
 		if (other.CompareTag ("Pump") && hasBalloon == false) {
 			isFilling = false;
-			print (pumpTime);
+			//print (pumpTime);
 			if(pumpTime >= 16){
 				other.GetComponent<Animator> ().SetInteger ("State", 0);
 				GetComponent<Animator> ().SetInteger ("State", 5);
-				print("FILLED GO GO!");
+				//print("FILLED GO GO!");
 				hasBalloon = true;
 				isFilling = false;
 				pumpTime = 0;
