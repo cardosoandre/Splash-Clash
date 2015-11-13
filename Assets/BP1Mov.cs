@@ -10,10 +10,10 @@ public class BP1Mov : MonoBehaviour {
 	private bool isFilling;
 	private bool filledUp;
 	private bool holdShot;
-	private bool hasBalloon;
+	public bool hasBalloon;
 	
-	public bool faceRight;
-	public bool faceLeft;
+	private bool faceRight;
+	private bool faceLeft;
 
 	public bool gotHit = false;
 
@@ -249,7 +249,7 @@ public class BP1Mov : MonoBehaviour {
 
 	void OnTriggerEnter(Collider other) {
 		
-		if (other.tag == "RedBalloon") {
+		if (other.tag == "RedBalloon" || other.tag == "BlueBalloon" ) {
 
 			gotHit = true;
 
