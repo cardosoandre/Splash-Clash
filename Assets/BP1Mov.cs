@@ -210,7 +210,7 @@ public class BP1Mov : MonoBehaviour {
 		if (other.CompareTag ("Pump") && hasBalloon == false) {
 			isFilling = false;
 			//print (pumpTime);
-			if(pumpTime >= 16){
+			if(pumpTime >= 6){
 				other.GetComponent<Animator> ().SetInteger ("State", 0);
 				GetComponent<Animator> ().SetInteger ("State", 5);
 				//print("FILLED GO GO!");
