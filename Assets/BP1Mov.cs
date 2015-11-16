@@ -10,10 +10,10 @@ public class BP1Mov : MonoBehaviour {
 	private bool isFilling;
 	private bool filledUp;
 	private bool holdShot;
-	private bool hasBalloon;
+	public bool hasBalloon;
 	
-	public bool faceRight;
-	public bool faceLeft;
+	private bool faceRight;
+	private bool faceLeft;
 
 	public bool gotHit = false;
 
@@ -163,7 +163,7 @@ public class BP1Mov : MonoBehaviour {
 		
 		if (Input.GetKey (keySHOOT) && isFilling == false && hasBalloon == true) {
 			pressTime = pressTime + 1.5f;
-			print(pressTime);
+			//print(pressTime);
 			Xspeed = 0.5f;
 			Yspeed = 1;
 
@@ -209,11 +209,11 @@ public class BP1Mov : MonoBehaviour {
 		
 		if (other.CompareTag ("Pump") && hasBalloon == false) {
 			isFilling = false;
-			print (pumpTime);
+			//print (pumpTime);
 			if(pumpTime >= 16){
 				other.GetComponent<Animator> ().SetInteger ("State", 0);
 				GetComponent<Animator> ().SetInteger ("State", 5);
-				print("FILLED GO GO!");
+				//print("FILLED GO GO!");
 				hasBalloon = true;
 				isFilling = false;
 				pumpTime = 0;
@@ -249,7 +249,7 @@ public class BP1Mov : MonoBehaviour {
 
 	void OnTriggerEnter(Collider other) {
 		
-		if (other.tag == "RedBalloon") {
+		if (other.tag == "RedBalloon" || other.tag == "BlueBalloon" ) {
 
 			gotHit = true;
 
