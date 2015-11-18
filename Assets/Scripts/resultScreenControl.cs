@@ -3,6 +3,8 @@ using System.Collections;
 
 public class resultScreenControl : MonoBehaviour {
 
+	public 
+
 	// Use this for initialization
 	void Start () {
 	
@@ -13,15 +15,15 @@ public class resultScreenControl : MonoBehaviour {
 
 		if (Input.GetKey (KeyCode.C)) {
 
-			Application.LoadLevel("FINAL TEST SCENE");
+			Application.LoadLevel("4 player prototype");
 
 		}
 
-		if (Input.GetKey (KeyCode.X)) {
+		//if (Input.GetKey (KeyCode.X)) {
 
-			Application.LoadLevel("Start Screen");
+		//	Application.LoadLevel("Start Screen");
 
-		}
+		//}
 
 	}
 }

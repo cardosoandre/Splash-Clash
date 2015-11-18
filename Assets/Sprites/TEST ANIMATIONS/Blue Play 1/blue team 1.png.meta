@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: ad74f9f6f4bc6439d84454cc3f536868
-timeCreated: 1446996594
+timeCreated: 1447709685
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -22,6 +22,7 @@ TextureImporter:
     21300030: blue team 1_15
     21300032: blue team 1_16
     21300034: blue team 1_17
+    21300036: blue team 1_18
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -243,6 +244,16 @@ TextureImporter:
         x: 65
         y: 22
         width: 26
+        height: 44
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: blue team 1_18
+      rect:
+        serializedVersion: 2
+        x: 74
+        y: 290
+        width: 19
         height: 44
       alignment: 0
       pivot: {x: .5, y: .5}

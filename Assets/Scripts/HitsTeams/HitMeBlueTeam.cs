@@ -13,11 +13,6 @@ public class HitMeBlueTeam : MonoBehaviour {
 
 	void Update (){
 
-		if (Input.GetKeyDown(KeyCode.Q)){
-			GetComponent<Animator>().SetInteger("State", 10);
-		}
-
-
 
 	}
 	
