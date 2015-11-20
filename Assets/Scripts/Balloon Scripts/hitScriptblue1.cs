@@ -5,6 +5,7 @@ public class hitScriptblue1: MonoBehaviour {
 
 	public GameObject splash; 
 	public GameObject sound;
+	public GameObject trace;
 
 	// Use this for initialization
 	void Start () {
@@ -30,6 +31,7 @@ public class hitScriptblue1: MonoBehaviour {
 		if (other.tag == "Floor") {
 			Destroy (gameObject);
 			Instantiate(splash, transform.position, transform.rotation);
+			Instantiate(trace, transform.position, Quaternion.Euler(90, 0, 0));
 			}
 
 	}

@@ -38,6 +38,11 @@ public class BP1Mov : MonoBehaviour {
 	public KeyCode keyFILL;
 	public KeyCode keySHOOT;
 
+	public bool canMove = true;
+
+	public string tag;
+
+
 	// Use this for initialization
 	void Start () {
 		
@@ -58,18 +63,25 @@ public class BP1Mov : MonoBehaviour {
 	void Update () {
 
 		if(Input.GetKey(KeyCode.G)){
-			Application.LoadLevel("2 player prototype");
+			Application.LoadLevel("4 player prototype");
 		}
 
-		MovPlay ();
+		if (canMove) MovPlay ();
 		ShootPlay ();
 		ChargeShot ();
 		FixBug ();
 
 	}
 
+	//=========TURNON=====================================================================================
+
+	void TurnCanMoveOn () {
+		gotHit = false;
+		canMove = true;	
+	}
+
 	//=========MOVE=====================================================================================
-	
+
 	void MovPlay () {
 
 		//RIGHT MOVEMENT (SET TO D)
@@ -196,8 +208,12 @@ public class BP1Mov : MonoBehaviour {
 		// GOTHIT STATE  ===== REMEMBER THIS !!!!! ======
 
 		if (gotHit == true) {
+
 			GetComponent<Animator> ().SetInteger ("State", 10);
+			canMove = false;
+			Invoke("TurnCanMoveOn",0.2f);
 			gotHit = false;
+
 
 		}
 	}
@@ -249,7 +265,7 @@ public class BP1Mov : MonoBehaviour {
 
 	void OnTriggerEnter(Collider other) {
 		
-		if (other.tag == "RedBalloon" || other.tag == "BlueBalloon" ) {
+		if (other.tag == tag) {
 
 			gotHit = true;
 
