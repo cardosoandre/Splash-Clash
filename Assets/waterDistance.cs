@@ -7,6 +7,7 @@ public class waterDistance : MonoBehaviour {
 	public float radius;
 	public float waterScore;
 
+
 	// Use this for initialization
 	void Start () {
 
@@ -18,7 +19,7 @@ public class waterDistance : MonoBehaviour {
 				float percent = radius / dist;
 				waterScore = percent * waterAmount;
 				//print(waterScore);
-				other.gameObject.SendMessage("getWet", waterAmount * percent);
+				other.gameObject.SendMessage("getWet", waterScore);
 			}
 		}
 	}

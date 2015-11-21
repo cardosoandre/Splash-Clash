@@ -8,7 +8,6 @@ public class HitMeBlueTeam : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		
-		
 	}
 
 	void Update (){
@@ -24,9 +23,9 @@ public class HitMeBlueTeam : MonoBehaviour {
 		}
 	}
 
-	void getWet(float waterAmount){
+	void getWet(float waterScore){
 		//print (waterAmount + "omg actually worked" );
-		redscore = redscore + (int) waterAmount;
+		redscore = redscore + (int) waterScore;
 		print ("RED SCORE IS: " + redscore);
 	}
 }

@@ -4,10 +4,10 @@ using System.Collections;
 public class HitMeRedTeam : MonoBehaviour {
 
 	public int bluescore;
-	
+
 	// Use this for initialization
 	void Start () {
-		
+
 		
 	}
 	
@@ -19,9 +19,9 @@ public class HitMeRedTeam : MonoBehaviour {
 		}
 	}
 
-	void getWet(float waterAmount){
+	void getWet(float waterScore){
 		//print (waterAmount + "omg actually worked" );
-		bluescore = bluescore + (int) waterAmount;
+		bluescore = bluescore + (int) waterScore;
 		print ("BLUE SCORE IS: " + bluescore);
 	}
 }
