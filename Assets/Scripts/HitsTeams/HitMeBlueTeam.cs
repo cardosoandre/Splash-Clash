@@ -18,10 +18,16 @@ public class HitMeBlueTeam : MonoBehaviour {
 	
 	void OnTriggerEnter(Collider other) {
 		if (other.tag == "RedBalloon") { //balloon can be changed to specifc color tag
-			redscore = redscore + 1; 
-			Debug.Log ("Red Score = " + redscore);
+			//redscore = redscore + 1; 
+			//Debug.Log ("Red Score = " + redscore);
 			
 		}
+	}
+
+	void getWet(float waterAmount){
+		//print (waterAmount + "omg actually worked" );
+		redscore = redscore + (int) waterAmount;
+		print ("RED SCORE IS: " + redscore);
 	}
 }
 
