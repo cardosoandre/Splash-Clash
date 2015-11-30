@@ -17,11 +17,13 @@ public class timerTest : MonoBehaviour {
 
 		startTime = 80;
 		timer = GetComponent<Text>();
+
 		
 	}
 	
 	// Update is called once per frame
 	void Update () {
+
 		
 		timeLeft = startTime;
 
@@ -61,4 +63,5 @@ public class timerTest : MonoBehaviour {
 		}
 		
 	}
+	
 }

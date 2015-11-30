@@ -13,7 +13,7 @@ public class instructionsControl : MonoBehaviour {
 	
 		if (Input.GetKey (KeyCode.X)) {
 			
-			Application.LoadLevel("FINAL TEST SCENE");
+			Application.LoadLevel("4 player prototype");
 			
 		}
 
