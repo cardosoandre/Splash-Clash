@@ -1,0 +1,264 @@
+fileFormatVersion: 2
+guid: 6fa44c08b16554f0ea41f24ff1250602
+timeCreated: 1448069064
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: blue team 1 girl_0
+    21300002: blue team 1 girl_1
+    21300004: blue team 1 girl_2
+    21300006: blue team 1 girl_3
+    21300008: blue team 1 girl_4
+    21300010: blue team 1 girl_5
+    21300012: blue team 1 girl_6
+    21300014: blue team 1 girl_7
+    21300016: blue team 1 girl_8
+    21300018: blue team 1 girl_9
+    21300020: blue team 1 girl_10
+    21300022: blue team 1 girl_11
+    21300024: blue team 1 girl_12
+    21300026: blue team 1 girl_13
+    21300028: blue team 1 girl_14
+    21300030: blue team 1 girl_15
+    21300032: blue team 1 girl_16
+    21300034: blue team 1 girl_17
+    21300036: blue team 1 girl_18
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 8
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: 0
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: blue team 1 girl_0
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 290
+        width: 22
+        height: 44
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: blue team 1 girl_1
+      rect:
+        serializedVersion: 2
+        x: 28
+        y: 290
+        width: 22
+        height: 44
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: blue team 1 girl_2
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 290
+        width: 20
+        height: 44
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: blue team 1 girl_3
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 234
+        width: 22
+        height: 44
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: blue team 1 girl_4
+      rect:
+        serializedVersion: 2
+        x: 28
+        y: 234
+        width: 22
+        height: 44
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: blue team 1 girl_5
+      rect:
+        serializedVersion: 2
+        x: 51
+        y: 234
+        width: 22
+        height: 44
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: blue team 1 girl_6
+      rect:
+        serializedVersion: 2
+        x: 74
+        y: 234
+        width: 22
+        height: 44
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: blue team 1 girl_7
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 181
+        width: 24
+        height: 44
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: blue team 1 girl_8
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 181
+        width: 24
+        height: 44
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: blue team 1 girl_9
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 181
+        width: 24
+        height: 44
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: blue team 1 girl_10
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 125
+        width: 22
+        height: 44
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: blue team 1 girl_11
+      rect:
+        serializedVersion: 2
+        x: 31
+        y: 125
+        width: 22
+        height: 44
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: blue team 1 girl_12
+      rect:
+        serializedVersion: 2
+        x: 55
+        y: 125
+        width: 22
+        height: 44
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: blue team 1 girl_13
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 74
+        width: 24
+        height: 44
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: blue team 1 girl_14
+      rect:
+        serializedVersion: 2
+        x: 39
+        y: 74
+        width: 20
+        height: 44
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: blue team 1 girl_15
+      rect:
+        serializedVersion: 2
+        x: 63
+        y: 74
+        width: 25
+        height: 44
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: blue team 1 girl_16
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 22
+        width: 26
+        height: 44
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: blue team 1 girl_17
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 22
+        width: 26
+        height: 44
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: blue team 1 girl_18
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 22
+        width: 26
+        height: 44
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

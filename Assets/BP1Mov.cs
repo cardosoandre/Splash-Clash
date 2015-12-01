@@ -11,6 +11,7 @@ public class BP1Mov : MonoBehaviour {
 	private bool filledUp;
 	private bool holdShot;
 	public bool hasBalloon;
+	public bool speedUp; //test speed power up
 	
 	private bool faceRight;
 	private bool faceLeft;
@@ -24,6 +25,8 @@ public class BP1Mov : MonoBehaviour {
 	public float leftLimit;		
 	public float rightLimit;	
 	public float fillPitch = 1;
+	public float speedUpTimer; //add timer amount?
+	public float speedUpMultiplyer = 1; //add f? Default unmodified speed, changes during powerUp
 
 	public GameObject balloonBall;
 	public GameObject finishFillSound;
@@ -37,6 +40,11 @@ public class BP1Mov : MonoBehaviour {
 	public KeyCode keyRIGHT;
 	public KeyCode keyFILL;
 	public KeyCode keySHOOT;
+
+	public bool canMove = true;
+
+	public string tag;
+
 
 	// Use this for initialization
 	void Start () {
@@ -58,18 +66,28 @@ public class BP1Mov : MonoBehaviour {
 	void Update () {
 
 		if(Input.GetKey(KeyCode.G)){
-			Application.LoadLevel("2 player prototype");
+			Application.LoadLevel("4 player prototype");
 		}
 
-		MovPlay ();
+		if (canMove) MovPlay ();
 		ShootPlay ();
 		ChargeShot ();
 		FixBug ();
 
+		if (speedUp = true) speedUpCountDown (); //added to control speedUp timer
+	
+
+	}
+
+	//=========TURNON=====================================================================================
+
+	void TurnCanMoveOn () {
+		gotHit = false;
+		canMove = true;	
 	}
 
 	//=========MOVE=====================================================================================
-	
+
 	void MovPlay () {
 
 		//RIGHT MOVEMENT (SET TO D)
@@ -164,8 +182,8 @@ public class BP1Mov : MonoBehaviour {
 		if (Input.GetKey (keySHOOT) && isFilling == false && hasBalloon == true) {
 			pressTime = pressTime + 1.5f;
 			//print(pressTime);
-			Xspeed = 0.5f;
-			Yspeed = 1;
+			Xspeed = 0.5f * speedUpMultiplyer;
+			Yspeed = 1 * speedUpMultiplyer;
 
 			if (pressTime >= 80){
 				pressTime = 80;
@@ -182,8 +200,8 @@ public class BP1Mov : MonoBehaviour {
 			
 		} else if (Input.GetKeyUp (keySHOOT) && isFilling == false) {
 			pressTime = 0;
-			Xspeed = 1.5f;
-			Yspeed = 3;
+			Xspeed = 1.5f * speedUpMultiplyer;
+			Yspeed = 3 * speedUpMultiplyer;
 			hasBalloon = false;
 			GetComponent<Animator> ().SetInteger ("State", 7);
 		}
@@ -196,8 +214,12 @@ public class BP1Mov : MonoBehaviour {
 		// GOTHIT STATE  ===== REMEMBER THIS !!!!! ======
 
 		if (gotHit == true) {
+
 			GetComponent<Animator> ().SetInteger ("State", 10);
+			canMove = false;
+			Invoke("TurnCanMoveOn",0.2f);
 			gotHit = false;
+
 
 		}
 	}
@@ -210,7 +232,7 @@ public class BP1Mov : MonoBehaviour {
 		if (other.CompareTag ("Pump") && hasBalloon == false) {
 			isFilling = false;
 			//print (pumpTime);
-			if(pumpTime >= 16){
+			if (pumpTime >= 6) {
 				other.GetComponent<Animator> ().SetInteger ("State", 0);
 				GetComponent<Animator> ().SetInteger ("State", 5);
 				//print("FILLED GO GO!");
@@ -218,7 +240,7 @@ public class BP1Mov : MonoBehaviour {
 				isFilling = false;
 				pumpTime = 0;
 				fillPitch = 1;
-				Instantiate(finishFillSound, transform.position, transform.rotation);
+				Instantiate (finishFillSound, transform.position, transform.rotation);
 			}
 			if (Input.GetKeyDown (keyFILL)) {
 				other.GetComponent<AudioSource> ().Play ();
@@ -228,11 +250,13 @@ public class BP1Mov : MonoBehaviour {
 				isFilling = true;
 			} 
 
-			if (Input.GetKey(keyFILL) && hasBalloon == false && isFilling == true) {
+			if (Input.GetKey (keyFILL) && hasBalloon == false && isFilling == true) {
 				other.GetComponent<Animator> ().SetInteger ("State", 1);
 			}
 
 		}
+
+	
 	}// ONTRIGGER FINISH
 
 	void OnTriggerExit (Collider other){
@@ -249,13 +273,36 @@ public class BP1Mov : MonoBehaviour {
 
 	void OnTriggerEnter(Collider other) {
 		
-		if (other.tag == "RedBalloon" || other.tag == "BlueBalloon" ) {
+		if (other.tag == tag) {
 
 			gotHit = true;
+
+   // SPEED POWER UP  ===== 
+			
+			//test speed power up; button to pick up power ups? CHANGE TO ON TRIGGER ENTER
+			
+			if (other.CompareTag ("speedPowerUp") && hasBalloon == false) { //def. no balloon only?
+				speedUp = true;
+				speedUpMultiplyer = 1.5f; //test speeds
+				speedUpTimer = 30; //seconds
+
+
+				//may need to add check when timer is expires to reset speed to *1
+			}
 
 		}
 	}
 
+	void speedUpCountDown(){ //TO DO: CONFIRM THIS COUNTS DOWN
+		if (speedUpTimer > 0) {
+			speedUpTimer -= Time.deltaTime;
+		} else {
+			speedUp = false;
+			speedUpMultiplyer = 1; //test speeds
+		}
+		
+	}
+	
 	//ONTRIGGERFINISH
 
 
