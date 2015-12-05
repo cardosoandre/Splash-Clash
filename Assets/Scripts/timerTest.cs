@@ -24,7 +24,7 @@ public class timerTest : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-		
+
 		timeLeft = startTime;
 
 		startTime = startTime - 0.016f;
