@@ -34,6 +34,12 @@ public class hitScriptblue1: MonoBehaviour {
 			Instantiate(trace, transform.position, Quaternion.Euler(90, 0, 0));
 			}
 
+		if (other.tag == "Pump") {
+			Destroy (gameObject);
+			Instantiate(splash, transform.position, transform.rotation);
+		}
+
+
 	}
 
 

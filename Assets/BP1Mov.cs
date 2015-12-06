@@ -79,7 +79,7 @@ public class BP1Mov : MonoBehaviour {
 
 	}
 
-	//=========TURNON=====================================================================================
+	//=========TURNON/OFF=====================================================================================
 
 	void TurnCanMoveOn () {
 		gotHit = false;
@@ -232,7 +232,12 @@ public class BP1Mov : MonoBehaviour {
 		if (other.CompareTag ("Pump") && hasBalloon == false) {
 			isFilling = false;
 			//print (pumpTime);
-			if (pumpTime >= 6) {
+
+			if (pumpTime < 1){
+				other.GetComponent<Animator> ().SetInteger ("State", 0);
+			}
+
+			if (pumpTime >= 10) {
 				other.GetComponent<Animator> ().SetInteger ("State", 0);
 				GetComponent<Animator> ().SetInteger ("State", 5);
 				//print("FILLED GO GO!");
@@ -242,7 +247,7 @@ public class BP1Mov : MonoBehaviour {
 				fillPitch = 1;
 				Instantiate (finishFillSound, transform.position, transform.rotation);
 			}
-			if (Input.GetKeyDown (keyFILL)) {
+			if (Input.GetKeyDown (keyFILL) && Input.GetKey (keySHOOT) == false) {
 				other.GetComponent<AudioSource> ().Play ();
 				other.GetComponent<AudioSource> ().pitch = fillPitch;
 				fillPitch = fillPitch + 0.2f;
@@ -251,7 +256,18 @@ public class BP1Mov : MonoBehaviour {
 			} 
 
 			if (Input.GetKey (keyFILL) && hasBalloon == false && isFilling == true) {
+				if (pumpTime < 2){
 				other.GetComponent<Animator> ().SetInteger ("State", 1);
+				}
+				if (pumpTime > 2 && pumpTime < 4){
+					other.GetComponent<Animator> ().SetInteger ("State", 2);
+				}
+				if (pumpTime > 4 && pumpTime <= 6){
+					other.GetComponent<Animator> ().SetInteger ("State", 3);
+				}
+				if (pumpTime > 6 && pumpTime <= 8){
+					other.GetComponent<Animator> ().SetInteger ("State", 4);
+				}
 			}
 
 		}
@@ -262,9 +278,12 @@ public class BP1Mov : MonoBehaviour {
 	void OnTriggerExit (Collider other){
 		if (other.CompareTag ("Pump")) {
 			fillPitch = 1;
-			pumpTime = 0;
-			isFilling = false;
-			//print(pumpTime);
+			pumpTime = pumpTime;
+			//isFilling = false;
+			if (hasBalloon == true){
+				pumpTime = 0;
+				isFilling = false;
+			}
 		}
 	}// ONTRIGGER FINISH
 
@@ -273,7 +292,7 @@ public class BP1Mov : MonoBehaviour {
 
 	void OnTriggerEnter(Collider other) {
 		
-		if (other.tag == tag) {
+		if (other.tag == tag ) {
 
 			gotHit = true;
 
