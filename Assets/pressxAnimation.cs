@@ -21,7 +21,7 @@ public class pressxAnimation : MonoBehaviour {
 		}
 
 		if (GetComponent<BP1Mov> ().hasBalloon == true && other.CompareTag ("Box")) {
-		other.GetComponent<Animator> ().SetInteger ("State",0);
+		other.GetComponent<Animator> ().SetInteger ("State",2);
 		}
 
 	}
