@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 1aa7a11c334ae45e5bb014b7030d0731
-timeCreated: 1447277970
+timeCreated: 1449266534
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -9,6 +9,7 @@ TextureImporter:
     21300004: player sprite 2 more_2
     21300006: player sprite 2 more_3
     21300008: player sprite 2 more_4
+    21300010: player sprite 2 more_5
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -59,7 +60,7 @@ TextureImporter:
         serializedVersion: 2
         x: 8
         y: 280
-        width: 26
+        width: 29
         height: 44
       alignment: 0
       pivot: {x: .5, y: .5}
@@ -67,9 +68,9 @@ TextureImporter:
     - name: player sprite 2 more_1
       rect:
         serializedVersion: 2
-        x: 38
+        x: 40
         y: 280
-        width: 26
+        width: 29
         height: 44
       alignment: 0
       pivot: {x: .5, y: .5}
@@ -77,9 +78,9 @@ TextureImporter:
     - name: player sprite 2 more_2
       rect:
         serializedVersion: 2
-        x: 67
+        x: 73
         y: 280
-        width: 26
+        width: 29
         height: 44
       alignment: 0
       pivot: {x: .5, y: .5}

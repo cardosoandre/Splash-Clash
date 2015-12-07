@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class BP1Mov: MonoBehaviour {
+public class BP1Mov : MonoBehaviour {
 	
 	public float Xspeed;	
 	public float Yspeed;
@@ -48,7 +48,7 @@ public class BP1Mov: MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-
+		
 		xscale = transform.localScale.x;
 		hasBalloon = false;
 		isFilling = false;
@@ -59,7 +59,6 @@ public class BP1Mov: MonoBehaviour {
 			faceLeft = true;
 			transform.localScale = new Vector3 (-xscale, transform.localScale.y, transform.localScale.z);
 		}
-
 			
 	}
 	
@@ -75,12 +74,12 @@ public class BP1Mov: MonoBehaviour {
 		ChargeShot ();
 		FixBug ();
 
-		if (speedUp == true) speedUpCountDown (); //added to control speedUp timer
-
+		if (speedUp = true) speedUpCountDown (); //added to control speedUp timer
+	
 
 	}
 
-	//=========TURNON=====================================================================================
+	//=========TURNON/OFF=====================================================================================
 
 	void TurnCanMoveOn () {
 		gotHit = false;
@@ -90,7 +89,6 @@ public class BP1Mov: MonoBehaviour {
 	//=========MOVE=====================================================================================
 
 	void MovPlay () {
-
 
 		//RIGHT MOVEMENT (SET TO D)
 
@@ -111,9 +109,7 @@ public class BP1Mov: MonoBehaviour {
 		
 			transform.localScale = new Vector3 (xscale, transform.localScale.y, transform.localScale.z);
 			if (transform.position.x <= rightLimit) {
-				transform.Translate (Vector3.right * Xspeed * Time.deltaTime * speedUpMultiplyer);
-
-				Debug.Log("Xspeed = " + Xspeed);
+				transform.Translate (Vector3.right * Xspeed * Time.deltaTime);
 			}
 
 			//LEFT MOVEMENT (SET TO A)
@@ -133,9 +129,7 @@ public class BP1Mov: MonoBehaviour {
 			
 			transform.localScale = new Vector3 (-xscale, transform.localScale.y, transform.localScale.z);
 			if (transform.position.x >= leftLimit) {
-				transform.Translate (-Vector3.right * Xspeed * Time.deltaTime * speedUpMultiplyer);
-
-				Debug.Log("Xspeed = " + Xspeed);
+				transform.Translate (-Vector3.right * Xspeed * Time.deltaTime);
 			}
 		} else if (isFilling == false && hasBalloon == false) {
 			GetComponent<Animator> ().SetInteger ("State", 0);
@@ -156,10 +150,8 @@ public class BP1Mov: MonoBehaviour {
 			}
 
 			if (transform.position.z >= downLimit) {
-				transform.Translate (-Vector3.forward * Yspeed * Time.deltaTime * speedUpMultiplyer);
+				transform.Translate (-Vector3.forward * Yspeed * Time.deltaTime);
 			}
-
-			Debug.Log("Yspeed =" + Yspeed);
 		} 
 
 		//UP MOVEMENT (SET TO W)
@@ -175,10 +167,8 @@ public class BP1Mov: MonoBehaviour {
 			}
 
 			if (transform.position.z <= upLimit) {
-				transform.Translate (Vector3.forward * Yspeed * Time.deltaTime * speedUpMultiplyer);
+				transform.Translate (Vector3.forward * Yspeed * Time.deltaTime);
 			}
-
-			Debug.Log("Yspeed =" + Yspeed);
 		}
 
 	} //VOID FINISH
@@ -242,7 +232,12 @@ public class BP1Mov: MonoBehaviour {
 		if (other.CompareTag ("Pump") && hasBalloon == false) {
 			isFilling = false;
 			//print (pumpTime);
-			if (pumpTime >= 6) {
+
+			if (pumpTime < 1){
+				other.GetComponent<Animator> ().SetInteger ("State", 0);
+			}
+
+			if (pumpTime >= 10) {
 				other.GetComponent<Animator> ().SetInteger ("State", 0);
 				GetComponent<Animator> ().SetInteger ("State", 5);
 				//print("FILLED GO GO!");
@@ -252,7 +247,7 @@ public class BP1Mov: MonoBehaviour {
 				fillPitch = 1;
 				Instantiate (finishFillSound, transform.position, transform.rotation);
 			}
-			if (Input.GetKeyDown (keyFILL)) {
+			if (Input.GetKeyDown (keyFILL) && Input.GetKey (keySHOOT) == false) {
 				other.GetComponent<AudioSource> ().Play ();
 				other.GetComponent<AudioSource> ().pitch = fillPitch;
 				fillPitch = fillPitch + 0.2f;
@@ -261,7 +256,18 @@ public class BP1Mov: MonoBehaviour {
 			} 
 
 			if (Input.GetKey (keyFILL) && hasBalloon == false && isFilling == true) {
+				if (pumpTime < 2){
 				other.GetComponent<Animator> ().SetInteger ("State", 1);
+				}
+				if (pumpTime > 2 && pumpTime < 4){
+					other.GetComponent<Animator> ().SetInteger ("State", 2);
+				}
+				if (pumpTime > 4 && pumpTime <= 6){
+					other.GetComponent<Animator> ().SetInteger ("State", 3);
+				}
+				if (pumpTime > 6 && pumpTime <= 8){
+					other.GetComponent<Animator> ().SetInteger ("State", 4);
+				}
 			}
 
 		}
@@ -272,9 +278,12 @@ public class BP1Mov: MonoBehaviour {
 	void OnTriggerExit (Collider other){
 		if (other.CompareTag ("Pump")) {
 			fillPitch = 1;
-			pumpTime = 0;
-			isFilling = false;
-			//print(pumpTime);
+			pumpTime = pumpTime;
+			//isFilling = false;
+			if (hasBalloon == true){
+				pumpTime = 0;
+				isFilling = false;
+			}
 		}
 	}// ONTRIGGER FINISH
 
@@ -283,28 +292,29 @@ public class BP1Mov: MonoBehaviour {
 
 	void OnTriggerEnter(Collider other) {
 		
-		if (other.tag == tag) {
-			gotHit = true;
-		}
+		if (other.tag == tag ) {
 
-		// SPEED POWER UP  ===== 
-		
-		//test speed power up; button to pick up power ups? CHANGE TO ON TRIGGER ENTER
-		
-		if (other.CompareTag ("speedPowerUp") && hasBalloon == false) { //def. no balloon only?
-			speedUp = true;
-			speedUpMultiplyer = 2f; //test speeds
-			speedUpTimer = 5f; //seconds
-			Debug.Log("Speed UP" + speedUpTimer);
+			gotHit = true;
+
+   // SPEED POWER UP  ===== 
 			
-			//may need to add check when timer is expires to reset speed to *1
+			//test speed power up; button to pick up power ups? CHANGE TO ON TRIGGER ENTER
+			
+			if (other.CompareTag ("speedPowerUp") && hasBalloon == false) { //def. no balloon only?
+				speedUp = true;
+				speedUpMultiplyer = 1.5f; //test speeds
+				speedUpTimer = 30; //seconds
+
+
+				//may need to add check when timer is expires to reset speed to *1
+			}
+
 		}
 	}
-	
+
 	void speedUpCountDown(){ //TO DO: CONFIRM THIS COUNTS DOWN
 		if (speedUpTimer > 0) {
 			speedUpTimer -= Time.deltaTime;
-		
 		} else {
 			speedUp = false;
 			speedUpMultiplyer = 1; //test speeds
