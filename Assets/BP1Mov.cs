@@ -3,9 +3,7 @@ using System.Collections;
 
 public class BP1Mov : MonoBehaviour {
 	
-	public float Xspeed;	
-	public float Yspeed;
-	private float xscale;
+	public float Xspeed, Yspeed, xscale;	
 	
 	private bool isFilling;
 	private bool filledUp;
@@ -13,17 +11,14 @@ public class BP1Mov : MonoBehaviour {
 	public bool hasBalloon;
 	public bool speedUp; //test speed power up
 	
-	private bool faceRight;
-	private bool faceLeft;
+	private bool faceRight, faceLeft;
 
 	public bool gotHit = false;
 
 	public float pressTime;
 	public float pumpTime = 0;		
-	public float upLimit;		
-	public float downLimit;		
-	public float leftLimit;		
-	public float rightLimit;	
+	public float upLimit, downLimit, leftLimit, rightLimit;		
+
 	public float fillPitch = 1;
 	public float speedUpTimer; //add timer amount?
 	public float speedUpMultiplyer = 1; //add f? Default unmodified speed, changes during powerUp
@@ -31,20 +26,13 @@ public class BP1Mov : MonoBehaviour {
 	public GameObject balloonBall;
 	public GameObject finishFillSound;
 
-	public Transform UPp;
-	public Transform DOWNp;
+	public Transform UPp, DOWNp;
 
-	public KeyCode keyUP;
-	public KeyCode keyDOWN;
-	public KeyCode keyLEFT;
-	public KeyCode keyRIGHT;
-	public KeyCode keyFILL;
-	public KeyCode keySHOOT;
+	public KeyCode keyUP,keyDOWN,keyLEFT,keyRIGHT,keyFILL,keySHOOT;
 
 	public bool canMove = true;
 
 	public string tag;
-
 
 	// Use this for initialization
 	void Start () {
