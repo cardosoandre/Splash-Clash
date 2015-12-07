@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class BP1Mov: MonoBehaviour {
+public class BP1MovSpeedTest: MonoBehaviour {
 	
 	public float Xspeed;	
 	public float Yspeed;
@@ -48,7 +48,7 @@ public class BP1Mov: MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-
+		
 		xscale = transform.localScale.x;
 		hasBalloon = false;
 		isFilling = false;
@@ -59,7 +59,6 @@ public class BP1Mov: MonoBehaviour {
 			faceLeft = true;
 			transform.localScale = new Vector3 (-xscale, transform.localScale.y, transform.localScale.z);
 		}
-
 			
 	}
 	
@@ -111,7 +110,8 @@ public class BP1Mov: MonoBehaviour {
 		
 			transform.localScale = new Vector3 (xscale, transform.localScale.y, transform.localScale.z);
 			if (transform.position.x <= rightLimit) {
-				transform.Translate (Vector3.right * Xspeed * Time.deltaTime * speedUpMultiplyer);
+			//	Xspeed *= speedUpMultiplyer;
+				transform.Translate (Vector3.right * (Xspeed * speedUpMultiplyer) * Time.deltaTime);
 
 				Debug.Log("Xspeed = " + Xspeed);
 			}
@@ -133,7 +133,7 @@ public class BP1Mov: MonoBehaviour {
 			
 			transform.localScale = new Vector3 (-xscale, transform.localScale.y, transform.localScale.z);
 			if (transform.position.x >= leftLimit) {
-				transform.Translate (-Vector3.right * Xspeed * Time.deltaTime * speedUpMultiplyer);
+				transform.Translate (-Vector3.right * (Xspeed * speedUpMultiplyer) * Time.deltaTime);
 
 				Debug.Log("Xspeed = " + Xspeed);
 			}
@@ -156,7 +156,7 @@ public class BP1Mov: MonoBehaviour {
 			}
 
 			if (transform.position.z >= downLimit) {
-				transform.Translate (-Vector3.forward * Yspeed * Time.deltaTime * speedUpMultiplyer);
+				transform.Translate (-Vector3.forward * (Yspeed * speedUpMultiplyer) * Time.deltaTime);
 			}
 
 			Debug.Log("Yspeed =" + Yspeed);
@@ -175,7 +175,7 @@ public class BP1Mov: MonoBehaviour {
 			}
 
 			if (transform.position.z <= upLimit) {
-				transform.Translate (Vector3.forward * Yspeed * Time.deltaTime * speedUpMultiplyer);
+				transform.Translate (Vector3.forward * (Yspeed * speedUpMultiplyer) * Time.deltaTime);
 			}
 
 			Debug.Log("Yspeed =" + Yspeed);
@@ -293,7 +293,7 @@ public class BP1Mov: MonoBehaviour {
 		
 		if (other.CompareTag ("speedPowerUp") && hasBalloon == false) { //def. no balloon only?
 			speedUp = true;
-			speedUpMultiplyer = 2f; //test speeds
+			speedUpMultiplyer = 2.5f; //test speeds
 			speedUpTimer = 5f; //seconds
 			Debug.Log("Speed UP" + speedUpTimer);
 			
