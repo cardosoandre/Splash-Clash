@@ -109,7 +109,7 @@ public class BP1Mov : MonoBehaviour {
 		
 			transform.localScale = new Vector3 (xscale, transform.localScale.y, transform.localScale.z);
 			if (transform.position.x <= rightLimit) {
-				transform.Translate (Vector3.right * Xspeed * Time.deltaTime);
+				transform.Translate (Vector3.right * Xspeed * Time.deltaTime * speedUpMultiplyer);
 			}
 
 			//LEFT MOVEMENT (SET TO A)
@@ -129,7 +129,7 @@ public class BP1Mov : MonoBehaviour {
 			
 			transform.localScale = new Vector3 (-xscale, transform.localScale.y, transform.localScale.z);
 			if (transform.position.x >= leftLimit) {
-				transform.Translate (-Vector3.right * Xspeed * Time.deltaTime);
+				transform.Translate (-Vector3.right * Xspeed * Time.deltaTime * speedUpMultiplyer);
 			}
 		} else if (isFilling == false && hasBalloon == false) {
 			GetComponent<Animator> ().SetInteger ("State", 0);
@@ -150,7 +150,7 @@ public class BP1Mov : MonoBehaviour {
 			}
 
 			if (transform.position.z >= downLimit) {
-				transform.Translate (-Vector3.forward * Yspeed * Time.deltaTime);
+				transform.Translate (-Vector3.forward * Yspeed * Time.deltaTime * speedUpMultiplyer);
 			}
 		} 
 
@@ -167,7 +167,7 @@ public class BP1Mov : MonoBehaviour {
 			}
 
 			if (transform.position.z <= upLimit) {
-				transform.Translate (Vector3.forward * Yspeed * Time.deltaTime);
+				transform.Translate (Vector3.forward * Yspeed * Time.deltaTime * speedUpMultiplyer);
 			}
 		}
 
@@ -302,8 +302,8 @@ public class BP1Mov : MonoBehaviour {
 			
 			if (other.CompareTag ("speedPowerUp") && hasBalloon == false) { //def. no balloon only?
 				speedUp = true;
-				speedUpMultiplyer = 1.5f; //test speeds
-				speedUpTimer = 30; //seconds
+				speedUpMultiplyer = 0.3f; //power changed to SLOW DOWN - test speeds
+				speedUpTimer = 5; //seconds
 
 
 				//may need to add check when timer is expires to reset speed to *1
