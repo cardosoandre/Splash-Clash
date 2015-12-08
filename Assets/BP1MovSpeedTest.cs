@@ -110,10 +110,10 @@ public class BP1MovSpeedTest: MonoBehaviour {
 		
 			transform.localScale = new Vector3 (xscale, transform.localScale.y, transform.localScale.z);
 			if (transform.position.x <= rightLimit) {
-			//	Xspeed *= speedUpMultiplyer;
+		
 				transform.Translate (Vector3.right * (Xspeed * speedUpMultiplyer) * Time.deltaTime);
 
-				Debug.Log("Xspeed = " + Xspeed);
+				//Debug.Log("Xspeed = " + Xspeed);
 			}
 
 			//LEFT MOVEMENT (SET TO A)
@@ -135,7 +135,7 @@ public class BP1MovSpeedTest: MonoBehaviour {
 			if (transform.position.x >= leftLimit) {
 				transform.Translate (-Vector3.right * (Xspeed * speedUpMultiplyer) * Time.deltaTime);
 
-				Debug.Log("Xspeed = " + Xspeed);
+				//Debug.Log("Xspeed = " + Xspeed);
 			}
 		} else if (isFilling == false && hasBalloon == false) {
 			GetComponent<Animator> ().SetInteger ("State", 0);
@@ -159,7 +159,7 @@ public class BP1MovSpeedTest: MonoBehaviour {
 				transform.Translate (-Vector3.forward * (Yspeed * speedUpMultiplyer) * Time.deltaTime);
 			}
 
-			Debug.Log("Yspeed =" + Yspeed);
+			//Debug.Log("Yspeed =" + Yspeed);
 		} 
 
 		//UP MOVEMENT (SET TO W)
@@ -178,7 +178,7 @@ public class BP1MovSpeedTest: MonoBehaviour {
 				transform.Translate (Vector3.forward * (Yspeed * speedUpMultiplyer) * Time.deltaTime);
 			}
 
-			Debug.Log("Yspeed =" + Yspeed);
+			//Debug.Log("Yspeed =" + Yspeed);
 		}
 
 	} //VOID FINISH
