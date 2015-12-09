@@ -29,6 +29,5 @@ public class explodeMid : MonoBehaviour {
 	void ExplodeMe () {
 		Destroy (gameObject);
 		Instantiate (splash, transform.position, transform.rotation);
-		Instantiate (splash, transform.position, transform.rotation);
 	}
 }
