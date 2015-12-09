@@ -20,6 +20,8 @@ public class waterDistance : MonoBehaviour {
 				waterScore = percent * waterAmount;
 				//print(waterScore);
 				other.gameObject.SendMessage("getWet", waterScore);
+				other.gameObject.SendMessage("GotHit");
+
 			}
 		}
 	}

@@ -85,6 +85,12 @@ public class BP1Mov : MonoBehaviour {
 		GetComponent<SpriteRenderer> ().color = white;
 	}
 
+	public void GotHit () {
+		canMove = false;
+		gotHit = true;
+		Invoke ("TurnCanMoveOn", 0.2f);
+	}
+
 	//=========MOVE=====================================================================================
 
 	void MovPlay () {
