@@ -4,6 +4,8 @@ using System.Collections;
 public class explodeMid : MonoBehaviour {
 
 	public GameObject splash;
+	public GameObject fire;
+	public GameObject blink;
 	public bool activated = false;
 
 	// Use this for initialization
@@ -19,6 +21,12 @@ public class explodeMid : MonoBehaviour {
 	void OnTriggerEnter (Collider other) {
 		if (activated == false) {
 			if (other.CompareTag ("BlueBalloon") || other.CompareTag ("RedBalloon")) {
+				GameObject omgfire = Instantiate(fire, transform.position + new Vector3(0,-0.18f,-0.05f), transform.rotation) as GameObject;
+				GameObject whiteblink = Instantiate(blink,transform.position + new Vector3(0,0.1f,0),transform.rotation) as GameObject;
+				omgfire.transform.parent = gameObject.transform;
+				whiteblink.transform.parent = gameObject.transform;
+				GetComponent<Animator>().SetInteger("State",1);
+				GetComponentInChildren<shadowScript>().hit = true;
 				activated = true;
 				GetComponent<AudioSource> ().Play ();
 				print ("hit");

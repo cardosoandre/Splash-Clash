@@ -31,8 +31,12 @@ public class BP1Mov : MonoBehaviour {
 	public KeyCode keyUP,keyDOWN,keyLEFT,keyRIGHT,keyFILL,keySHOOT;
 
 	public bool canMove = true;
+	public bool poisoned = false;
 
 	public string tag;
+
+	public Color purple;
+	public Color white;
 
 	// Use this for initialization
 	void Start () {
@@ -72,6 +76,13 @@ public class BP1Mov : MonoBehaviour {
 	void TurnCanMoveOn () {
 		gotHit = false;
 		canMove = true;	
+	}
+
+	void StopPoison () {
+		poisoned = false;
+		Xspeed = 1.5f;
+		Yspeed = 3;
+		GetComponent<SpriteRenderer> ().color = white;
 	}
 
 	//=========MOVE=====================================================================================
@@ -170,8 +181,10 @@ public class BP1Mov : MonoBehaviour {
 		if (Input.GetKey (keySHOOT) && isFilling == false && hasBalloon == true) {
 			pressTime = pressTime + 1.5f;
 			//print(pressTime);
-			Xspeed = 0.5f * speedUpMultiplyer;
-			Yspeed = 1 * speedUpMultiplyer;
+	
+			Xspeed = 0.5f; 
+			Yspeed = 1;
+
 
 			if (pressTime >= 80){
 				pressTime = 80;
@@ -188,8 +201,10 @@ public class BP1Mov : MonoBehaviour {
 			
 		} else if (Input.GetKeyUp (keySHOOT) && isFilling == false) {
 			pressTime = 0;
-			Xspeed = 1.5f * speedUpMultiplyer;
-			Yspeed = 3 * speedUpMultiplyer;
+			if (poisoned == false){
+			Xspeed = 1.5f;
+			Yspeed = 3;
+			}
 			hasBalloon = false;
 			GetComponent<Animator> ().SetInteger ("State", 7);
 		}
@@ -209,6 +224,15 @@ public class BP1Mov : MonoBehaviour {
 			gotHit = false;
 
 
+		}
+
+		// IF POISONED TRUE  =============================
+
+		if (poisoned == true) {
+			Xspeed = 0.3f;
+			Yspeed = 0.8f;
+			GetComponent<SpriteRenderer>().color = purple;
+			Invoke ("StopPoison", 10);
 		}
 	}
 
