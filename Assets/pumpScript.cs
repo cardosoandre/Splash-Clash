@@ -16,7 +16,7 @@ public class pumpScript : MonoBehaviour {
 
 	void OnArea (float pumpTime) {
 
-		print (pumpTime);
+		//print (pumpTime);
 		//print ("yeah");
 
 		if (pumpTime > 0 && pumpTime < 2){
