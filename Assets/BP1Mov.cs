@@ -62,7 +62,7 @@ public class BP1Mov : MonoBehaviour {
 		ChargeShot ();
 		FixBug ();
 
-		if (speedUp = true) speedUpCountDown (); //added to control speedUp timer
+		if (speedUp == true) speedUpCountDown (); //added to control speedUp timer
 	
 
 	}
