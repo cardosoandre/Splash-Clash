@@ -62,7 +62,7 @@ public class BP1Mov : MonoBehaviour {
 		ChargeShot ();
 		FixBug ();
 
-		if (speedUp = true) speedUpCountDown (); //added to control speedUp timer
+		if (speedUp == true) speedUpCountDown (); //added to control speedUp timer
 	
 
 	}
@@ -326,6 +326,7 @@ public class BP1Mov : MonoBehaviour {
 			GetComponent<AudioSource>().Play();
 
 			GameObject myBallon = Instantiate (balloonBall, UPp.position, UPp.rotation) as GameObject;
+			myBallon.GetComponent<whoDidIt>().playerName = gameObject.name;
 			if (faceRight == true) {
 				myBallon.GetComponent<Rigidbody> ().AddForce (transform.right * pressTime + transform.up * 10);
 			}
