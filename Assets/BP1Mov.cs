@@ -20,8 +20,6 @@ public class BP1Mov : MonoBehaviour {
 	public float upLimit, downLimit, leftLimit, rightLimit;		
 
 	public float fillPitch = 1;
-	public float speedUpTimer; //add timer amount?
-	public float speedUpMultiplyer = 1; //add f? Default unmodified speed, changes during powerUp
 
 	public GameObject balloonBall;
 	public GameObject finishFillSound;
@@ -66,9 +64,6 @@ public class BP1Mov : MonoBehaviour {
 		ShootPlay ();
 		ChargeShot ();
 		FixBug ();
-
-		if (speedUp == true) speedUpCountDown (); //added to control speedUp timer
-	
 
 	}
 
@@ -139,7 +134,7 @@ public class BP1Mov : MonoBehaviour {
 		
 			transform.localScale = new Vector3 (xscale, transform.localScale.y, transform.localScale.z);
 			if (transform.position.x <= rightLimit) {
-				transform.Translate (Vector3.right * Xspeed * Time.deltaTime * speedUpMultiplyer);
+				transform.Translate (Vector3.right * Xspeed * Time.deltaTime);
 			}
 
 			//LEFT MOVEMENT (SET TO A)
@@ -159,7 +154,7 @@ public class BP1Mov : MonoBehaviour {
 			
 			transform.localScale = new Vector3 (-xscale, transform.localScale.y, transform.localScale.z);
 			if (transform.position.x >= leftLimit) {
-				transform.Translate (-Vector3.right * Xspeed * Time.deltaTime * speedUpMultiplyer);
+				transform.Translate (-Vector3.right * Xspeed * Time.deltaTime);
 			}
 		} else if (isFilling == false && hasBalloon == false) {
 			GetComponent<Animator> ().SetInteger ("State", 0);
@@ -180,7 +175,7 @@ public class BP1Mov : MonoBehaviour {
 			}
 
 			if (transform.position.z >= downLimit) {
-				transform.Translate (-Vector3.forward * Yspeed * Time.deltaTime * speedUpMultiplyer);
+				transform.Translate (-Vector3.forward * Yspeed * Time.deltaTime);
 			}
 		} 
 
@@ -197,7 +192,7 @@ public class BP1Mov : MonoBehaviour {
 			}
 
 			if (transform.position.z <= upLimit) {
-				transform.Translate (Vector3.forward * Yspeed * Time.deltaTime * speedUpMultiplyer);
+				transform.Translate (Vector3.forward * Yspeed * Time.deltaTime);
 			}
 		}
 
@@ -268,7 +263,46 @@ public class BP1Mov : MonoBehaviour {
 		}
 	}
 
+	// /*
 
+//==== TEMPORARY TEST @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+	void OnTriggerStay(Collider other){
+
+		//Use this for when the fill is ready = hasBalloon;
+
+		if (other.tag == ("Pump") && hasBalloon == false) {
+			other.SendMessage("OnArea", pumpTime);
+			if (isFilling == true){
+				hasBalloon = false;
+			}
+			if (Input.GetKeyDown (keyFILL)){
+				pumpTime = pumpTime + 1;
+				isFilling = true;
+				other.SendMessage("OnArea", pumpTime);
+				if (pumpTime >= 10) {
+					//other.GetComponent<Animator>().SetInteger("State", 0);
+					hasBalloon = true;
+					Instantiate (finishFillSound,transform.position,transform.rotation);
+					isFilling = false;
+				}
+			}
+	
+		}
+	}
+
+	void OnTriggerExit(Collider other){
+		if (other.tag == ("Pump")) {
+			if (hasBalloon == true){
+				pumpTime = 0;
+			}
+			other.SendMessage ("ExitArea");
+		}
+	}
+
+	//  */
+
+	/*
 	//=========PUMP=====================================================================================
 	
 	void OnTriggerStay(Collider other){
@@ -331,40 +365,21 @@ public class BP1Mov : MonoBehaviour {
 		}
 	}// ONTRIGGER FINISH
 
+*/
+
 
 	// GOTHIT STATE  ===== REMEMBER THIS !!!!! ======
 
 	void OnTriggerEnter(Collider other) {
 		
-		if (other.tag == tag ) {
+		if (other.tag == tag) {
 
 			gotHit = true;
 
-   // SPEED POWER UP  ===== 
-			
-			//test speed power up; button to pick up power ups? CHANGE TO ON TRIGGER ENTER
-			
-			if (other.CompareTag ("speedPowerUp") && hasBalloon == false) { //def. no balloon only?
-				speedUp = true;
-				speedUpMultiplyer = 0.3f; //power changed to SLOW DOWN - test speeds
-				speedUpTimer = 5; //seconds
-
-
-				//may need to add check when timer is expires to reset speed to *1
-			}
-
 		}
+
 	}
 
-	void speedUpCountDown(){ //TO DO: CONFIRM THIS COUNTS DOWN
-		if (speedUpTimer > 0) {
-			speedUpTimer -= Time.deltaTime;
-		} else {
-			speedUp = false;
-			speedUpMultiplyer = 1; //test speeds
-		}
-		
-	}
 	
 	//ONTRIGGERFINISH
 
