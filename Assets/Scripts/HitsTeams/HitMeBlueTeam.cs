@@ -25,7 +25,9 @@ public class HitMeBlueTeam : MonoBehaviour {
 
 	void getWet(float waterScore){
 		//print (waterAmount + "omg actually worked" );
-		redscore = redscore + (int) waterScore;
+		if (GetComponent<BP1Mov> ().bubbleshield == false) {
+			redscore = redscore + (int)waterScore;
+		}
 		print ("RED SCORE IS: " + redscore);
 	}
 }

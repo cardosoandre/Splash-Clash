@@ -32,6 +32,7 @@ public class BP1Mov : MonoBehaviour {
 
 	public bool canMove = true;
 	public bool poisoned = false;
+	public bool bubbleshield = false;
 
 	public string tag;
 
@@ -82,6 +83,7 @@ public class BP1Mov : MonoBehaviour {
 		poisoned = false;
 		Xspeed = 1.5f;
 		Yspeed = 3;
+		GetComponent<Animator>().speed = 1;
 		GetComponent<SpriteRenderer> ().color = white;
 	}
 
@@ -90,6 +92,29 @@ public class BP1Mov : MonoBehaviour {
 		gotHit = true;
 		Invoke ("TurnCanMoveOn", 0.2f);
 	}
+
+	public void HasBubble () {
+		Invoke ("BubbleOver", 10);
+		bubbleshield = true;
+		if (gameObject.tag == ("Player")){
+		GetComponent<HitMeBlueTeam> ().enabled = false;
+		}
+		if (gameObject.tag == ("Player 2")){
+		GetComponent<HitMeRedTeam> ().enabled = false;
+		}
+	}
+
+	void BubbleOver () {
+		gotHit = false;
+		bubbleshield = false;
+		if (gameObject.tag == ("Player")){
+			GetComponent<HitMeBlueTeam> ().enabled = true;
+		}
+		if (gameObject.tag == ("Player 2")){
+			GetComponent<HitMeRedTeam> ().enabled = true;
+		}
+	}
+
 
 	//=========MOVE=====================================================================================
 
@@ -222,7 +247,7 @@ public class BP1Mov : MonoBehaviour {
 
 		// GOTHIT STATE  ===== REMEMBER THIS !!!!! ======
 
-		if (gotHit == true) {
+		if (gotHit == true && bubbleshield == false) {
 
 			GetComponent<Animator> ().SetInteger ("State", 10);
 			canMove = false;
@@ -237,6 +262,7 @@ public class BP1Mov : MonoBehaviour {
 		if (poisoned == true) {
 			Xspeed = 0.3f;
 			Yspeed = 0.8f;
+			GetComponent<Animator>().speed = 0.3f;
 			GetComponent<SpriteRenderer>().color = purple;
 			Invoke ("StopPoison", 10);
 		}
