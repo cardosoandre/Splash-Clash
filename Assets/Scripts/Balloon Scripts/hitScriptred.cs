@@ -26,6 +26,11 @@ public class hitScriptred : MonoBehaviour {
 				Instantiate(splash, transform.position, transform.rotation);
 		}
 
+		if (other.tag == "Pump") {
+			Destroy (gameObject);
+			Instantiate(splash, transform.position, transform.rotation);
+		}
+
 
 	}
 

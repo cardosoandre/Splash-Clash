@@ -12,7 +12,7 @@ public class bubbleScript : MonoBehaviour {
 	void Start () {
 
 		bboy = GameObject.Find ("Blue BOY").transform;
-		bgirl = GameObject.Find ("Blue BOY").transform;
+		bgirl = GameObject.Find ("Blue GIRL").transform;
 
 
 	}

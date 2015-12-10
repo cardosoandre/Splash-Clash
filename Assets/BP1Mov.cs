@@ -65,7 +65,15 @@ public class BP1Mov : MonoBehaviour {
 		ChargeShot ();
 		FixBug ();
 
+
+		//@@@@@@@@@@ POISON RUN BUG FIX
+
+		// IF POISONED TRUE  =============================
+		
+
+
 	}
+	
 
 	//=========TURNON/OFF=====================================================================================
 
@@ -74,6 +82,14 @@ public class BP1Mov : MonoBehaviour {
 		canMove = true;	
 	}
 
+	public void StartPoison() {
+		poisoned = true;
+		Xspeed = 0.3f;
+		Yspeed = 0.8f;
+		GetComponent<Animator>().speed = 0.3f;
+		GetComponent<SpriteRenderer>().color = purple;
+		Invoke ("StopPoison", 10);
+	}
 	void StopPoison () {
 		poisoned = false;
 		Xspeed = 1.5f;
@@ -81,7 +97,7 @@ public class BP1Mov : MonoBehaviour {
 		GetComponent<Animator>().speed = 1;
 		GetComponent<SpriteRenderer> ().color = white;
 	}
-
+	
 	public void GotHit () {
 		canMove = false;
 		gotHit = true;
@@ -102,10 +118,10 @@ public class BP1Mov : MonoBehaviour {
 	void BubbleOver () {
 		gotHit = false;
 		bubbleshield = false;
-		if (gameObject.tag == ("Player")){
+		if (gameObject.tag == ("Player")) {
 			GetComponent<HitMeBlueTeam> ().enabled = true;
 		}
-		if (gameObject.tag == ("Player 2")){
+		if (gameObject.tag == ("Player 2")) {
 			GetComponent<HitMeRedTeam> ().enabled = true;
 		}
 	}
@@ -202,14 +218,17 @@ public class BP1Mov : MonoBehaviour {
 	
 	void ChargeShot () {
 
+
 		//SLOW DOWN CHARGE
 		
 		if (Input.GetKey (keySHOOT) && isFilling == false && hasBalloon == true) {
 			pressTime = pressTime + 1.5f;
 			//print(pressTime);
 	
+			if (poisoned == false){
 			Xspeed = 0.5f; 
 			Yspeed = 1;
+			}
 
 
 			if (pressTime >= 80){
@@ -252,15 +271,6 @@ public class BP1Mov : MonoBehaviour {
 
 		}
 
-		// IF POISONED TRUE  =============================
-
-		if (poisoned == true) {
-			Xspeed = 0.3f;
-			Yspeed = 0.8f;
-			GetComponent<Animator>().speed = 0.3f;
-			GetComponent<SpriteRenderer>().color = purple;
-			Invoke ("StopPoison", 10);
-		}
 	}
 
 	// /*
@@ -276,7 +286,7 @@ public class BP1Mov : MonoBehaviour {
 			if (isFilling == true){
 				hasBalloon = false;
 			}
-			if (Input.GetKeyDown (keyFILL)){
+			if (Input.GetKeyDown (keyFILL) && Input.GetKey(keyLEFT) == false && Input.GetKey(keyRIGHT) == false) {
 				pumpTime = pumpTime + 1;
 				isFilling = true;
 				other.SendMessage("OnArea", pumpTime);
