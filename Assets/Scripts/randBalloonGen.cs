@@ -14,7 +14,7 @@ public class randBalloonGen : MonoBehaviour {
 
 		float time1 = Random.Range (5, 10);
 		float time2 = Random.Range (10, 20);
-		float time3 = Random.Range (40, 50);
+		float time3 = Random.Range (65, 70);
 
 		Invoke ("SpawnBubble", time1);
 		Invoke ("SpawnPoison", time2);
@@ -33,13 +33,13 @@ public class randBalloonGen : MonoBehaviour {
 		float pos = Random.Range (-0.6f, 2.1f);
 		Vector3 position =  new Vector3(0,0,pos);
 		Instantiate (poisonPowerUp, position, Quaternion.identity);
-		float time2 = Random.Range (17, 20);
+		float time2 = Random.Range (30, 35);
 		Invoke ("SpawnPoison", time2);
 	}
 	void SpawnBomb(){
 		float pos = Random.Range (-0.6f, 2.1f);
 		Vector3 position =  new Vector3(0,0,pos);
 		Instantiate (bombPowerUp, position, Quaternion.identity);
-		//Invoke("SpawnBomb", Random.Range(5, 10));
+		//Invoke("SpawnBomb");
 	}
 }

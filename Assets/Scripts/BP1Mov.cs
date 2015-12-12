@@ -11,7 +11,7 @@ public class BP1Mov : MonoBehaviour {
 	public bool hasBalloon;
 	public bool speedUp; //test speed power up
 	
-	private bool faceRight, faceLeft;
+	public bool faceRight, faceLeft;
 
 	public bool gotHit = false;
 
@@ -37,6 +37,8 @@ public class BP1Mov : MonoBehaviour {
 	public Color purple;
 	public Color white;
 
+	public bool done = false;
+
 	// Use this for initialization
 	void Start () {
 		
@@ -57,7 +59,7 @@ public class BP1Mov : MonoBehaviour {
 	void Update () {
 
 		if(Input.GetKey(KeyCode.G)){
-			Application.LoadLevel("4 player prototype");
+			//Application.LoadLevel("4 player prototype");
 		}
 
 		if (canMove) MovPlay ();
@@ -99,8 +101,10 @@ public class BP1Mov : MonoBehaviour {
 	}
 	
 	public void GotHit () {
-		canMove = false;
-		gotHit = true;
+		if (bubbleshield == false) {
+			canMove = false;
+			gotHit = true;
+		}
 		//Invoke ("TurnCanMoveOn", 0.3f);
 	}
 
@@ -279,27 +283,49 @@ public class BP1Mov : MonoBehaviour {
 
 	void OnTriggerStay(Collider other){
 
-		//Use this for when the fill is ready = hasBalloon;
+		//Use this for when the fill is ready = hasBalloon; 
 
-		if (other.tag == ("Pump") && hasBalloon == false) {
+		if (other.tag == ("Pump") && hasBalloon == false && done == false) {
 			other.SendMessage("OnArea", pumpTime);
 			if (isFilling == true){
 				hasBalloon = false;
 			}
-			if (Input.GetKeyDown (keyFILL) && Input.GetKey(keyLEFT) == false && Input.GetKey(keyRIGHT) == false) {
-				pumpTime = pumpTime + 1;
-				isFilling = true;
-				other.SendMessage("OnArea", pumpTime);
-				if (pumpTime >= 10) {
-					//other.GetComponent<Animator>().SetInteger("State", 0);
-					hasBalloon = true;
-					Instantiate (finishFillSound,transform.position,transform.rotation);
-					isFilling = false;
+			if (Input.GetKeyDown (keyFILL) && Input.GetKey(keyLEFT) == false && Input.GetKey(keyRIGHT) == false
+			    && Input.GetKey (keySHOOT) == false) {
+				if(gameObject.tag == ("Player") && faceLeft == true){
+				transform.position = other.transform.position + new Vector3 (0.185f,0.146f,-0.146f);
+					pumpTime = pumpTime + 1;
+					isFilling = true;
+					if(Input.GetKeyDown(keyFILL)){
+						other.SendMessage("OnArea", pumpTime);
+					}
+					if (pumpTime >= 10) {
+						//other.GetComponent<Animator>().SetInteger("State", 0);
+						hasBalloon = true;
+						Instantiate (finishFillSound,transform.position,transform.rotation);
+						isFilling = false;
+						pumpTime = 0;
+					}
+				}
+				if(gameObject.tag == ("Player 2") && faceRight == true){
+					transform.position = other.transform.position + new Vector3 (-0.185f,0.146f,-0.146f);
+					pumpTime = pumpTime + 1;
+					isFilling = true;
+					if(Input.GetKeyDown(keyFILL)){
+						other.SendMessage("OnArea", pumpTime);
+					}
+					if (pumpTime >= 10) {
+						//other.GetComponent<Animator>().SetInteger("State", 0);
+						hasBalloon = true;
+						Instantiate (finishFillSound,transform.position,transform.rotation);
+						isFilling = false;
+						pumpTime = 0;
+					}
+				}
 				}
 			}
 	
 		}
-	}
 
 	void OnTriggerExit(Collider other){
 		if (other.tag == ("Pump")) {

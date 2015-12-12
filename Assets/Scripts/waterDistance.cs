@@ -29,11 +29,11 @@ public class waterDistance : MonoBehaviour {
 				other.gameObject.SendMessage("GotHit");
 
 					if (other.CompareTag ("Player 2") && other.GetComponent<BP1Mov>().bubbleshield == false){
-						redshirt.SendMessage("Hit");
+						redshirt.SendMessage("Hit", waterScore);
 					}
 
 					if (other.CompareTag ("Player") && other.GetComponent<BP1Mov>().bubbleshield == false){
-						blueshirt.SendMessage("Hit");
+						blueshirt.SendMessage("Hit", waterScore);
 					}
 
 

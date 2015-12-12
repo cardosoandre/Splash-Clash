@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: bd034b63bc3814818813c98ea7ab9171
-timeCreated: 1449813718
+timeCreated: 1449863727
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -57,7 +57,7 @@ TextureImporter:
     - name: red play GIRL more_0
       rect:
         serializedVersion: 2
-        x: 6
+        x: 8
         y: 280
         width: 30
         height: 44
@@ -67,7 +67,7 @@ TextureImporter:
     - name: red play GIRL more_1
       rect:
         serializedVersion: 2
-        x: 40
+        x: 42
         y: 280
         width: 30
         height: 44
@@ -77,7 +77,7 @@ TextureImporter:
     - name: red play GIRL more_2
       rect:
         serializedVersion: 2
-        x: 75
+        x: 77
         y: 280
         width: 30
         height: 44

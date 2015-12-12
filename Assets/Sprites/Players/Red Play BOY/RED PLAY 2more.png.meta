@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: c62b39fc533154d459e5ea5fa3345a45
-timeCreated: 1447451998
+timeCreated: 1449863989
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -59,7 +59,7 @@ TextureImporter:
         serializedVersion: 2
         x: 8
         y: 280
-        width: 26
+        width: 28
         height: 44
       alignment: 0
       pivot: {x: .5, y: .5}
@@ -67,9 +67,9 @@ TextureImporter:
     - name: RED PLAY 2more_1
       rect:
         serializedVersion: 2
-        x: 38
+        x: 40
         y: 280
-        width: 26
+        width: 28
         height: 44
       alignment: 0
       pivot: {x: .5, y: .5}
@@ -77,9 +77,9 @@ TextureImporter:
     - name: RED PLAY 2more_2
       rect:
         serializedVersion: 2
-        x: 67
+        x: 73
         y: 280
-        width: 26
+        width: 28
         height: 44
       alignment: 0
       pivot: {x: .5, y: .5}

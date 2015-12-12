@@ -19,7 +19,9 @@ public class poisonScript : MonoBehaviour {
 		if (other.CompareTag ("Player") || other.CompareTag ("Player 2")) {
 			Instantiate(poison, transform.position + new Vector3(0,0.08f,0),transform.rotation);
 			Destroy (gameObject);
+			if (other.GetComponent<BP1Mov>().bubbleshield == false){
 			other.GetComponent<BP1Mov> ().StartPoison();
+			}
 		}
 	}
 
