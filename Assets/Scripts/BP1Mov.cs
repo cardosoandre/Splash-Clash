@@ -286,50 +286,53 @@ public class BP1Mov : MonoBehaviour {
 		//Use this for when the fill is ready = hasBalloon; 
 
 
+		if (Input.GetKey(keyRIGHT) == false && Input.GetKey(keyLEFT) == false){
 
 		if (other.tag == ("Pump") && done == false && hasBalloon == false) {
 
-			other.SendMessage("Key", keyFILL);
+			other.SendMessage ("Key", keyFILL);
 
-			if (gameObject.tag == ("Player") && faceRight == false){
-				other.SendMessage("OnArea");
+			if (gameObject.tag == ("Player") && faceRight == false) {
+				other.SendMessage ("OnArea");
 			}
 
-			if (gameObject.tag == ("Player 2") && faceLeft == false){	
-				other.SendMessage("OnArea");		
+			if (gameObject.tag == ("Player 2") && faceLeft == false) {	
+				other.SendMessage ("OnArea");
 			}
 
-			if (isFilling == true){
+			if (isFilling == true) {
 				hasBalloon = false;
 			}
 
-			if (Input.GetKeyDown (keyFILL) && Input.GetKey(keyLEFT) == false && Input.GetKey(keyRIGHT) == false
-			    && Input.GetKey (keySHOOT) == false && hasBalloon == false) {
+			if (Input.GetKeyDown (keyFILL) && Input.GetKey (keyLEFT) == false && Input.GetKey (keyRIGHT) == false
+				&& Input.GetKey (keySHOOT) == false && hasBalloon == false) {
 
-				if(gameObject.tag == ("Player") && faceLeft == true){
-				transform.position = other.transform.position + new Vector3 (0.185f,0.146f,-0.146f);
+				if (gameObject.tag == ("Player") && faceLeft == true) {
+					transform.position = other.transform.position + new Vector3 (0.185f, 0.146f, -0.146f);
 					isFilling = true;
-					if (other.GetComponent<pumpScript>().fill >= 9) {
-						other.GetComponent<Animator>().SetInteger("State", 0);
+					if (other.GetComponent<pumpScript> ().fill >= 9) {
+						other.GetComponent<Animator> ().SetInteger ("State", 0);
 						hasBalloon = true;
-						Instantiate (finishFillSound,transform.position,transform.rotation);
+						Instantiate (finishFillSound, transform.position, transform.rotation);
 						isFilling = false;
 						pumpTime = 0;
 					}
 				}
-				if(gameObject.tag == ("Player 2") && faceRight == true){
-					transform.position = other.transform.position + new Vector3 (-0.185f,0.146f,-0.146f);
+				if (gameObject.tag == ("Player 2") && faceRight == true) {
+					transform.position = other.transform.position + new Vector3 (-0.185f, 0.146f, -0.146f);
 					isFilling = true;
-					if (other.GetComponent<pumpScript>().fill >= 9) {
-						other.GetComponent<Animator>().SetInteger("State", 0);
+					if (other.GetComponent<pumpScript> ().fill >= 9) {
+						other.GetComponent<Animator> ().SetInteger ("State", 0);
 						hasBalloon = true;
-						Instantiate (finishFillSound,transform.position,transform.rotation);
+						Instantiate (finishFillSound, transform.position, transform.rotation);
 						isFilling = false;
 						pumpTime = 0;
 					}
-				}
 				}
 			}
+		}
+
+	}
 	
 		}
 

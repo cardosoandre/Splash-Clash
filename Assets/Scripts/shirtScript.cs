@@ -56,13 +56,13 @@ public class shirtScript : MonoBehaviour {
 		if (waterTotal > 0 && gameObject.name == "R-SHIRT") {
 			if (Input.GetKeyDown (bbS) || Input.GetKeyDown (bgS)){
 			Instantiate (squish, transform.position, transform.rotation);
-			waterTotal -= 2;
+			waterTotal -= 5;
 			}
 		}
 		if (waterTotal > 0 && gameObject.name == "B-SHIRT") {
 			if (Input.GetKeyDown (rbS) || Input.GetKeyDown (rgS)){
 			Instantiate (squish, transform.position, transform.rotation);
-			waterTotal -= 2;
+			waterTotal -= 5;
 			}
 		}
 		if (waterTotal <= 0) {
