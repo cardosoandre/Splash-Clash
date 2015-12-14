@@ -14,7 +14,7 @@ public class randBalloonGen : MonoBehaviour {
 
 		float time1 = Random.Range (5, 10);
 		float time2 = Random.Range (10, 20);
-		float time3 = Random.Range (65, 70);
+		float time3 = Random.Range (63, 67);
 
 		Invoke ("SpawnBubble", time1);
 		Invoke ("SpawnPoison", time2);

@@ -16,6 +16,7 @@ public class timerTest : MonoBehaviour {
 	private GameObject spawner;
 	public bool blackscreen = true;
 	public bool paused = false;
+	public bool done = false;
 
 
 	// Use this for initialization
@@ -28,7 +29,7 @@ public class timerTest : MonoBehaviour {
 		bgirl = GameObject.Find ("Blue GIRL");
 		rboy = GameObject.Find ("Red BOY");
 		rgirl = GameObject.Find ("Red GIRL");
-		spawner = GameObject.Find ("SPAWNER");
+		spawner = GameObject.Find ("@SPAWNER");
 
 		
 	}
@@ -48,6 +49,8 @@ public class timerTest : MonoBehaviour {
 		timer.text = timeLeft.ToString("#");
 		
 		if (timeLeft <= 0) {
+
+			done = true;
 
 			rboy.GetComponent<BP1Mov>().done = true;
 			rgirl.GetComponent<BP1Mov>().done = true;

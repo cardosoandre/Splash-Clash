@@ -17,19 +17,23 @@ public class pauseScript : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-		if (Input.GetKeyDown (KeyCode.R) && pause == true) {
+		if (Input.GetKeyDown (KeyCode.R) && pause == true || 
+		    toptime.GetComponent<timerTest> ().done == true && Input.GetKeyDown (KeyCode.R)) {
 			Application.LoadLevel ("4 player prototype");
 			unPause();
 
 		}
 
+		if (toptime.GetComponent<timerTest> ().done == false) {
 
-		if (Input.GetKeyDown (KeyCode.Escape)) {
-			if (pause == false) {
-				Pause();
-			} else if (pause == true) {
-				unPause();
+			if (Input.GetKeyDown (KeyCode.Escape)) {
+				if (pause == false) {
+					Pause ();
+				} else if (pause == true) {
+					unPause ();
+				}
 			}
+
 		}
 	
 	}
