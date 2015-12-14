@@ -15,6 +15,7 @@ public class timerTest : MonoBehaviour {
 	public GameObject screen;
 	private GameObject spawner;
 	public bool blackscreen = true;
+	public bool paused = false;
 
 
 	// Use this for initialization
@@ -37,7 +38,9 @@ public class timerTest : MonoBehaviour {
 
 		timeLeft = startTime;
 
-		startTime = startTime - 0.016f;
+		if (paused == false) {
+			startTime = startTime - 0.016f;
+		}
 
 
 		//print (timeLeft);
