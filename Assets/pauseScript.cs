@@ -35,6 +35,8 @@ public class pauseScript : MonoBehaviour {
 	}
 
 	void Pause () {
+		toptime.SetActive(false);
+		GetComponent<SpriteRenderer> ().enabled = true;
 		//@@@@
 		bboy.GetComponent<BP1Mov>().enabled = false;
 		bgirl.GetComponent<BP1Mov>().enabled = false;
@@ -49,6 +51,8 @@ public class pauseScript : MonoBehaviour {
 
 
 	void unPause () {
+		toptime.SetActive(true);
+		GetComponent<SpriteRenderer> ().enabled = false;
 		//@@@@
 		bboy.GetComponent<BP1Mov>().enabled = true;
 		bgirl.GetComponent<BP1Mov>().enabled = true;
