@@ -8,6 +8,7 @@ public class timerTest : MonoBehaviour {
 	private float timeLeft;
 	Text timer;
 	private GameObject bboy, bgirl, rboy, rgirl;
+	public GameObject whistle;
 	public GameObject redshirt;
 	public GameObject blueshirt;
 	public GameObject splash;
@@ -15,9 +16,10 @@ public class timerTest : MonoBehaviour {
 	private GameObject spawner;
 	public bool blackscreen = true;
 
-	
+
 	// Use this for initialization
 	void Start () {
+
 
 		timer = GetComponent<Text>();
 
@@ -25,7 +27,6 @@ public class timerTest : MonoBehaviour {
 		bgirl = GameObject.Find ("Blue GIRL");
 		rboy = GameObject.Find ("Red BOY");
 		rgirl = GameObject.Find ("Red GIRL");
-
 		spawner = GameObject.Find ("SPAWNER");
 
 		
@@ -69,6 +70,8 @@ public class timerTest : MonoBehaviour {
 			//print ("DONE!");
 
 			if (blackscreen == true){
+
+				Instantiate(whistle,transform.position,transform.rotation);
 				blackscreen = false;
 				Instantiate(screen, new Vector3 (0,0.65f,-0.5f),transform.rotation);
 			}

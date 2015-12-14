@@ -285,22 +285,32 @@ public class BP1Mov : MonoBehaviour {
 
 		//Use this for when the fill is ready = hasBalloon; 
 
-		if (other.tag == ("Pump") && hasBalloon == false && done == false) {
-			other.SendMessage("OnArea", pumpTime);
+
+
+		if (other.tag == ("Pump") && done == false && hasBalloon == false) {
+
+			other.SendMessage("Key", keyFILL);
+
+			if (gameObject.tag == ("Player") && faceRight == false){
+				other.SendMessage("OnArea");
+			}
+
+			if (gameObject.tag == ("Player 2") && faceLeft == false){	
+				other.SendMessage("OnArea");		
+			}
+
 			if (isFilling == true){
 				hasBalloon = false;
 			}
+
 			if (Input.GetKeyDown (keyFILL) && Input.GetKey(keyLEFT) == false && Input.GetKey(keyRIGHT) == false
-			    && Input.GetKey (keySHOOT) == false) {
+			    && Input.GetKey (keySHOOT) == false && hasBalloon == false) {
+
 				if(gameObject.tag == ("Player") && faceLeft == true){
 				transform.position = other.transform.position + new Vector3 (0.185f,0.146f,-0.146f);
-					pumpTime = pumpTime + 1;
 					isFilling = true;
-					if(Input.GetKeyDown(keyFILL)){
-						other.SendMessage("OnArea", pumpTime);
-					}
-					if (pumpTime >= 10) {
-						//other.GetComponent<Animator>().SetInteger("State", 0);
+					if (other.GetComponent<pumpScript>().fill >= 9) {
+						other.GetComponent<Animator>().SetInteger("State", 0);
 						hasBalloon = true;
 						Instantiate (finishFillSound,transform.position,transform.rotation);
 						isFilling = false;
@@ -309,13 +319,9 @@ public class BP1Mov : MonoBehaviour {
 				}
 				if(gameObject.tag == ("Player 2") && faceRight == true){
 					transform.position = other.transform.position + new Vector3 (-0.185f,0.146f,-0.146f);
-					pumpTime = pumpTime + 1;
 					isFilling = true;
-					if(Input.GetKeyDown(keyFILL)){
-						other.SendMessage("OnArea", pumpTime);
-					}
-					if (pumpTime >= 10) {
-						//other.GetComponent<Animator>().SetInteger("State", 0);
+					if (other.GetComponent<pumpScript>().fill >= 9) {
+						other.GetComponent<Animator>().SetInteger("State", 0);
 						hasBalloon = true;
 						Instantiate (finishFillSound,transform.position,transform.rotation);
 						isFilling = false;
