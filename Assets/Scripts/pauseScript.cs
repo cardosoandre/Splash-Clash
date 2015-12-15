@@ -39,6 +39,7 @@ public class pauseScript : MonoBehaviour {
 	}
 
 	void Pause () {
+		Camera.main.GetComponent<AudioSource>().volume = 0.12f;
 		toptime.SetActive(false);
 		GetComponent<SpriteRenderer> ().enabled = true;
 		//@@@@
@@ -55,6 +56,7 @@ public class pauseScript : MonoBehaviour {
 
 
 	void unPause () {
+		Camera.main.GetComponent<AudioSource>().volume = 1;
 		toptime.SetActive(true);
 		GetComponent<SpriteRenderer> ().enabled = false;
 		//@@@@

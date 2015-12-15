@@ -86,10 +86,11 @@ public class timerTest : MonoBehaviour {
 			redshirt.GetComponent<shirtScript>().Squish();
 
 			if(redshirt.transform.position.x <= -0.7f){
-				redshirt.GetComponent<Animator>().SetInteger ("State",1); 
+				//redshirt.GetComponent<Animator>().SetInteger ("State",1); 
+				Invoke ("Players",0.5f);
 			}
 			if(blueshirt.transform.position.x >= 0.7f){
-				blueshirt.GetComponent<Animator>().SetInteger ("State",1); 
+				//blueshirt.GetComponent<Animator>().SetInteger ("State",1); 
 			}
 
 			if(blueshirt.transform.position.x <= 0.7f){
@@ -128,6 +129,13 @@ public class timerTest : MonoBehaviour {
 			
 		}
 		
+	}
+
+	void Players () {
+		GameObject.Find ("BlueBoyHold").GetComponent<SpriteRenderer> ().enabled = true;
+		GameObject.Find ("BlueBoyHold").GetComponent<FinalSquish> ().enabled = true;
+		GameObject.Find ("BlueBoyHold (1)").GetComponent<FinalSquish> ().enabled = true;
+		GameObject.Find ("BlueBoyHold (1)").GetComponent<SpriteRenderer> ().enabled = true;
 	}
 	
 }

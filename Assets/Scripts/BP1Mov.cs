@@ -63,8 +63,11 @@ public class BP1Mov : MonoBehaviour {
 		}
 
 		if (canMove) MovPlay ();
+
 		ShootPlay ();
+
 		ChargeShot ();
+		
 		FixBug ();
 
 
@@ -219,13 +222,15 @@ public class BP1Mov : MonoBehaviour {
 	} //VOID FINISH
 
 	//=========CHARGE=====================================================================================
-	
+		
 	void ChargeShot () {
-
 
 		//SLOW DOWN CHARGE
 		
 		if (Input.GetKey (keySHOOT) && isFilling == false && hasBalloon == true) {
+
+			if (Input.GetKeyDown (keyFILL) == false){ //@@@@
+
 			pressTime = pressTime + 1.5f;
 			//print(pressTime);
 	
@@ -239,11 +244,15 @@ public class BP1Mov : MonoBehaviour {
 				pressTime = 80;
 			}
 
-			if(Input.GetKey(keyUP) == false && Input.GetKey(keyDOWN) == false && Input.GetKey(keyLEFT) == false && Input.GetKey(keyRIGHT) == false){
+			}//@@@@
+
+			if(Input.GetKey(keyUP) == false && Input.GetKey(keyDOWN) == false && Input.GetKey(keyLEFT) == false && Input.GetKey(keyRIGHT) == false
+			   && Input.GetKeyDown(keyFILL) == false){
 			GetComponent<Animator> ().SetInteger ("State", 8);
 			}
 
-			if(Input.GetKey(keyUP) == true || Input.GetKey(keyDOWN) == true || Input.GetKey(keyLEFT) == true || Input.GetKey(keyRIGHT) == true){
+			if(Input.GetKey(keyUP) == true || Input.GetKey(keyDOWN) == true || Input.GetKey(keyLEFT) == true || Input.GetKey(keyRIGHT) == true
+			   && Input.GetKeyDown(keyFILL) == false){
 				GetComponent<Animator> ().SetInteger ("State", 13);
 			}
 			
