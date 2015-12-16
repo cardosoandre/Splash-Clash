@@ -64,7 +64,7 @@ public class timerTest : MonoBehaviour {
 				bboy.GetComponent<BP1Mov> ().done = true;
 				bgirl.GetComponent<BP1Mov> ().done = true;
 
-				Camera.main.GetComponent<AudioSource> ().volume = 0.12f;
+				Camera.main.GetComponent<AudioSource> ().Stop();
 
 				Destroy (spawner);
 
@@ -86,7 +86,8 @@ public class timerTest : MonoBehaviour {
 
 					Instantiate (whistle, transform.position, transform.rotation);
 					blackscreen = false;
-					Instantiate (screen, new Vector3 (0, 0.65f, -0.5f), transform.rotation);
+					//Instantiate (screen, new Vector3 (0, 0.65f, -0.5f), transform.rotation);
+					Invoke ("BlackS",3);
 				}
 
 
@@ -99,24 +100,11 @@ public class timerTest : MonoBehaviour {
 				}
 
 				//enable the squish
-				Invoke ("EnableSquish", 1.5f);
+				Invoke ("EnableSquish", 3.5f);
 				//show players
-				Invoke ("Players", 1.5f);
+				Invoke ("Players", 4f);
 
-				if (redshirt.transform.position.x <= -0.7f) {
-					//redshirt.GetComponent<Animator>().SetInteger ("State",1); 
-				}
-				if (blueshirt.transform.position.x >= 0.7f) {
-					//blueshirt.GetComponent<Animator>().SetInteger ("State",1); 
-				}
-
-				if (blueshirt.transform.position.x <= 0.7f) {
-					blueshirt.transform.position += new Vector3 (0.06f, -0.02f, 0);
-				}
-
-				if (redshirt.transform.position.x >= -0.7f) {
-					redshirt.transform.position += new Vector3 (-0.06f, -0.02f, 0);
-				}
+				Invoke ("MoveShirts",3);
 
 				timer.text = (" ");
 
@@ -149,6 +137,28 @@ public class timerTest : MonoBehaviour {
 		
 	}
 
+	void BlackS() {
+		Instantiate (screen, new Vector3 (0, 0.65f, -0.6f), transform.rotation);
+	}
+
+	void MoveShirts() {
+		
+		if (redshirt.transform.position.x <= -0.7f) {
+			//redshirt.GetComponent<Animator>().SetInteger ("State",1); 
+		}
+		if (blueshirt.transform.position.x >= 0.7f) {
+			//blueshirt.GetComponent<Animator>().SetInteger ("State",1); 
+		}
+		
+		if (blueshirt.transform.position.x <= 0.7f) {
+			blueshirt.transform.position += new Vector3 (0.06f, -0.02f, 0);
+		}
+		
+		if (redshirt.transform.position.x >= -0.7f) {
+			redshirt.transform.position += new Vector3 (-0.06f, -0.02f, 0);
+		}
+	}
+	
 	void EnableSquish () {
 		blueshirt.GetComponent<shirtScript> ().Squish ();
 		redshirt.GetComponent<shirtScript> ().Squish ();
