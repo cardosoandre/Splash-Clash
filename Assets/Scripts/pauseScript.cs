@@ -9,7 +9,7 @@ public class pauseScript : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-	
+
 		toptime = GameObject.Find ("TopTime");
 
 	}
@@ -56,7 +56,7 @@ public class pauseScript : MonoBehaviour {
 
 
 	void unPause () {
-		Camera.main.GetComponent<AudioSource>().volume = 1;
+		Camera.main.GetComponent<AudioSource>().volume = 0.51f;
 		toptime.SetActive(true);
 		GetComponent<SpriteRenderer> ().enabled = false;
 		//@@@@

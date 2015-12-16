@@ -19,14 +19,19 @@ public class FinalSquish : MonoBehaviour {
 	void Update () {
 	
 		if (Input.GetKey (keySHOOT)) {
+			//print("hey");
 			shirt.GetComponent<Animator> ().SetInteger ("State", 2);
+			shirt.transform.localScale = new Vector3 (1.1f,1,1);
 			GetComponent<Animator> ().SetInteger ("State", 1);
 			gameObject.GetComponent<Renderer> ().sortingOrder = 6;
-		} else if (Input.GetKeyUp (keySHOOT)) {
+		} if (Input.GetKeyUp (keySHOOT)) {
 			shirt.GetComponent<Animator> ().SetInteger ("State", 3);
+			shirt.transform.localScale = new Vector3 (1,1,1);
 			GetComponent<Animator> ().SetInteger ("State", 0);
 			gameObject.GetComponent<Renderer> ().sortingOrder = 99;
 		}
 
 	}
+
+
 }

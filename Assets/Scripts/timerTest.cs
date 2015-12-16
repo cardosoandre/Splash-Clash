@@ -17,12 +17,15 @@ public class timerTest : MonoBehaviour {
 	public bool blackscreen = true;
 	public bool paused = false;
 	public bool done = false;
-
+	public bool start = false;
 
 	// Use this for initialization
 	void Start () {
 
 
+		Invoke ("StartGame", 3);
+
+		
 		timer = GetComponent<Text>();
 
 		bboy = GameObject.Find ("Blue BOY");
@@ -32,79 +35,93 @@ public class timerTest : MonoBehaviour {
 		spawner = GameObject.Find ("@SPAWNER");
 
 		
+		
 	}
 	
 	// Update is called once per frame
 	void Update () {
 
-		timeLeft = startTime;
 
-		if (paused == false) {
-			startTime = startTime - 0.016f;
-		}
+		if (start == true) { // <=============== remember!
+
+			timeLeft = startTime;
+
+			if (paused == false) {
+				startTime = startTime - 0.016f;
+			}
 
 
-		//print (timeLeft);
-		//timer.text = timeLeft.ToString("#.00");
-		timer.text = timeLeft.ToString("#");
+			//print (timeLeft);
+			//timer.text = timeLeft.ToString("#.00");
+			timer.text = timeLeft.ToString ("#");
 		
-		if (timeLeft <= 0) {
+			if (timeLeft <= 0) {
 
-			done = true;
+				done = true;
 
-			rboy.GetComponent<BP1Mov>().done = true;
-			rgirl.GetComponent<BP1Mov>().done = true;
-			bboy.GetComponent<BP1Mov>().done = true;
-			bgirl.GetComponent<BP1Mov>().done = true;
+				rboy.GetComponent<BP1Mov> ().done = true;
+				rgirl.GetComponent<BP1Mov> ().done = true;
+				bboy.GetComponent<BP1Mov> ().done = true;
+				bgirl.GetComponent<BP1Mov> ().done = true;
 
-			Camera.main.GetComponent<AudioSource>().volume = 0.12f;
+				Camera.main.GetComponent<AudioSource> ().volume = 0.12f;
 
-			Destroy (spawner);
+				Destroy (spawner);
 
-			rboy.GetComponent<Animator>().SetInteger ("State",0); 
-			rgirl.GetComponent<Animator>().SetInteger ("State",0); 
-			bboy.GetComponent<Animator>().SetInteger ("State",0); 
-			bgirl.GetComponent<Animator>().SetInteger ("State",0);
+				rboy.GetComponent<Animator> ().SetInteger ("State", 0); 
+				rgirl.GetComponent<Animator> ().SetInteger ("State", 0); 
+				bboy.GetComponent<Animator> ().SetInteger ("State", 0); 
+				bgirl.GetComponent<Animator> ().SetInteger ("State", 0);
 		
 
-			rboy.GetComponent<BP1Mov>().enabled = false;
-			rgirl.GetComponent<BP1Mov>().enabled = false;
-			bboy.GetComponent<BP1Mov>().enabled = false;
-			bgirl.GetComponent<BP1Mov>().enabled = false;
+				rboy.GetComponent<BP1Mov> ().enabled = false;
+				rgirl.GetComponent<BP1Mov> ().enabled = false;
+				bboy.GetComponent<BP1Mov> ().enabled = false;
+				bgirl.GetComponent<BP1Mov> ().enabled = false;
 
 
-			//print ("DONE!");
+				//print ("DONE!");
 
-			if (blackscreen == true){
+				if (blackscreen == true) {
 
-				Instantiate(whistle,transform.position,transform.rotation);
-				blackscreen = false;
-				Instantiate(screen, new Vector3 (0,0.65f,-0.5f),transform.rotation);
-			}
-
-			blueshirt.GetComponent<shirtScript>().Squish();
-			redshirt.GetComponent<shirtScript>().Squish();
-
-			if(redshirt.transform.position.x <= -0.7f){
-				//redshirt.GetComponent<Animator>().SetInteger ("State",1); 
-				Invoke ("Players",0.5f);
-			}
-			if(blueshirt.transform.position.x >= 0.7f){
-				//blueshirt.GetComponent<Animator>().SetInteger ("State",1); 
-			}
-
-			if(blueshirt.transform.position.x <= 0.7f){
-			blueshirt.transform.position += new Vector3 (0.06f,-0.02f,0);
-			}
-
-			if(redshirt.transform.position.x >= -0.7f){
-				redshirt.transform.position += new Vector3 (-0.06f,-0.02f,0);
-			}
-
-			timer.text = (" ");
+					Instantiate (whistle, transform.position, transform.rotation);
+					blackscreen = false;
+					Instantiate (screen, new Vector3 (0, 0.65f, -0.5f), transform.rotation);
+				}
 
 
-			/*
+				// find all powerups and destroy them when the time is over
+
+				GameObject[] powU = GameObject.FindGameObjectsWithTag ("PowerUp");
+
+				foreach (GameObject p in powU) {
+					Destroy (p);
+				}
+
+				//enable the squish
+				Invoke ("EnableSquish", 1.5f);
+				//show players
+				Invoke ("Players", 1.5f);
+
+				if (redshirt.transform.position.x <= -0.7f) {
+					//redshirt.GetComponent<Animator>().SetInteger ("State",1); 
+				}
+				if (blueshirt.transform.position.x >= 0.7f) {
+					//blueshirt.GetComponent<Animator>().SetInteger ("State",1); 
+				}
+
+				if (blueshirt.transform.position.x <= 0.7f) {
+					blueshirt.transform.position += new Vector3 (0.06f, -0.02f, 0);
+				}
+
+				if (redshirt.transform.position.x >= -0.7f) {
+					redshirt.transform.position += new Vector3 (-0.06f, -0.02f, 0);
+				}
+
+				timer.text = (" ");
+
+
+				/*
 			if(RedPlayer.GetComponent<HitMeRedTeam>().bluescore + 
 			   RedPlayer2.GetComponent<HitMeRedTeam>().bluescore >
 			   BluePlayer.GetComponent<HitMeBlueTeam>().redscore +
@@ -127,15 +144,43 @@ public class timerTest : MonoBehaviour {
 			}
 			*/
 			
-		}
+			}
+		} // <========= this is where the if start false ends
 		
 	}
 
+	void EnableSquish () {
+		blueshirt.GetComponent<shirtScript> ().Squish ();
+		redshirt.GetComponent<shirtScript> ().Squish ();
+	}
+
 	void Players () {
+		//blueshirt.GetComponent<Animator> ().SetInteger ("State",1); 
+		//redshirt.GetComponent<Animator> ().SetInteger ("State",1); 
+		//blueshirt.GetComponent<Animator> ().SetInteger ("State",1); 
+		//redshirt.GetComponent<Animator> ().SetInteger ("State",1); 
+
+
 		GameObject.Find ("BlueBoyHold").GetComponent<SpriteRenderer> ().enabled = true;
 		GameObject.Find ("BlueBoyHold").GetComponent<FinalSquish> ().enabled = true;
-		GameObject.Find ("BlueBoyHold (1)").GetComponent<FinalSquish> ().enabled = true;
-		GameObject.Find ("BlueBoyHold (1)").GetComponent<SpriteRenderer> ().enabled = true;
+		GameObject.Find ("BlueGirlHold").GetComponent<FinalSquish> ().enabled = true;
+		GameObject.Find ("BlueGirlHold").GetComponent<SpriteRenderer> ().enabled = true;
+		GameObject.Find ("RedBoyHold").GetComponent<SpriteRenderer> ().enabled = true;
+		GameObject.Find ("RedBoyHold").GetComponent<FinalSquish> ().enabled = true;
+		GameObject.Find ("RedGirlHold").GetComponent<FinalSquish> ().enabled = true;
+		GameObject.Find ("RedGirlHold").GetComponent<SpriteRenderer> ().enabled = true;
+	}
+
+	void StartGame (){
+		start = true;
+		Camera.main.GetComponent<AudioSource> ().Play ();
+
+		bboy.GetComponent<BP1Mov> ().canMove = true;
+		bgirl.GetComponent<BP1Mov> ().canMove = true;
+		rboy.GetComponent<BP1Mov> ().canMove = true;
+		rgirl.GetComponent<BP1Mov> ().canMove = true;
+		spawner.GetComponent<randBalloonGen> ().enabled = true;
+
 	}
 	
 }

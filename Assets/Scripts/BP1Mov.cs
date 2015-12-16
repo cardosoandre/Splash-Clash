@@ -28,7 +28,7 @@ public class BP1Mov : MonoBehaviour {
 
 	public KeyCode keyUP,keyDOWN,keyLEFT,keyRIGHT,keyFILL,keySHOOT;
 
-	public bool canMove = true;
+	public bool canMove = false;
 	public bool poisoned = false;
 	public bool bubbleshield = false;
 

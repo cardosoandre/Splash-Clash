@@ -12,10 +12,13 @@ public class randBalloonGen : MonoBehaviour {
 	public float maxTime; //max time between power up appearance
 
 	private float pos;
-
+	private float pos2;
+	private float pos3;
+	
 	void Start(){
 
 		pos = Random.Range (-0.6f, 2.1f);
+		pos2 = Random.Range (-0.6f, 2.1f);
 
 		float time1 = Random.Range (5, 10);
 		float time2 = Random.Range (10, 20);
@@ -41,10 +44,16 @@ public class randBalloonGen : MonoBehaviour {
 		float time1 = Random.Range (25, 30);
 		Invoke ("SpawnBubble", time1);
 	}
-	
+
 	void SpawnPoison(){
-		float pos = Random.Range (-0.6f, 2.1f);
-		Vector3 position =  new Vector3(0,0,pos);
+		Vector3 position = new Vector3 (0, -0.125f, pos2);
+		Instantiate (poisonpreview, position, Quaternion.identity);
+		Invoke ("SpawnPoison2", 1.5f);
+		
+	}
+	
+	void SpawnPoison2(){
+		Vector3 position =  new Vector3(0,0,pos2);
 		Instantiate (poisonPowerUp, position, Quaternion.identity);
 		float time2 = Random.Range (30, 35);
 		Invoke ("SpawnPoison", time2);
