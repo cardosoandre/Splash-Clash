@@ -4,6 +4,8 @@ using System.Collections;
 public class hitScriptred : MonoBehaviour {
 
 	public GameObject splash;
+	public GameObject sound;
+	public GameObject trace;
 
 	// Use this for initialization
 	void Start () {
@@ -19,11 +21,18 @@ public class hitScriptred : MonoBehaviour {
 		if (other.tag == "Player") {
 			Destroy (gameObject);
 			Instantiate(splash, transform.position, transform.rotation);
+			Instantiate (sound, transform.position, transform.rotation);
 		}
 
 		if (other.tag == "Floor") {
 				Destroy (gameObject);
 				Instantiate(splash, transform.position, transform.rotation);
+				Instantiate(trace, transform.position, Quaternion.Euler(90, 0, 0));
+		}
+
+		if (other.tag == "Pump") {
+			Destroy (gameObject);
+			Instantiate(splash, transform.position, transform.rotation);
 		}
 
 
