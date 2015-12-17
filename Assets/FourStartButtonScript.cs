@@ -7,7 +7,7 @@ public class FourStartButtonScript : MonoBehaviour {
 
 	public void onClick(){
 		Instantiate (buttonSound);
-		Application.LoadLevel("LoadingScreen");
+		Application.LoadLevel ("LoadingScreen");
 		//StartCoroutine (waitStart());
 
 		//Debug.Log ("clicked");
