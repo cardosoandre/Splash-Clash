@@ -11,11 +11,13 @@ public class shirtScript : MonoBehaviour {
 	public GameObject redscore;
 	public GameObject result;
 	public GameObject bb,bg,rb,rg;
+	public GameObject pressA;
 
 
 	// Use this for initialization
 	void Start () {
 
+		pressA.GetComponent<SpriteRenderer> ().enabled = false;
 		waterTotal = 0;
 		waterResult = 0;
 		bluescore.GetComponent<TextMesh> ().text = (" ");
@@ -48,6 +50,8 @@ public class shirtScript : MonoBehaviour {
 
 	public void Squish (){
 
+		pressA.GetComponent<SpriteRenderer> ().enabled = true;
+
 		KeyCode bbS = bb.GetComponent<BP1Mov> ().keySHOOT;
 		KeyCode bgS = bg.GetComponent<BP1Mov> ().keySHOOT;
 		KeyCode rbS = rb.GetComponent<BP1Mov> ().keySHOOT;
@@ -67,6 +71,8 @@ public class shirtScript : MonoBehaviour {
 			}
 		}
 		if (waterTotal <= 0) {
+
+			pressA.GetComponent<SpriteRenderer> ().enabled = false;
 
 			GameObject B = GameObject.Find("R-SHIRT");
 			GameObject R = GameObject.Find("B-SHIRT");
