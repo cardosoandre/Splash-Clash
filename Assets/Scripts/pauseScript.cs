@@ -9,7 +9,7 @@ public class pauseScript : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-	
+
 		toptime = GameObject.Find ("TopTime");
 
 	}
@@ -17,11 +17,14 @@ public class pauseScript : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
+		if (Input.GetKeyDown(KeyCode.E) && pause == true){
+			Application.LoadLevel ("Start Screen");
+		}
+
 		if (Input.GetKeyDown (KeyCode.R) && pause == true || 
 		    toptime.GetComponent<timerTest> ().done == true && Input.GetKeyDown (KeyCode.R)) {
 			Application.LoadLevel ("4 player prototype");
 			unPause();
-
 		}
 
 		if (toptime.GetComponent<timerTest> ().done == false) {
@@ -39,6 +42,7 @@ public class pauseScript : MonoBehaviour {
 	}
 
 	void Pause () {
+		Camera.main.GetComponent<AudioSource>().volume = 0.12f;
 		toptime.SetActive(false);
 		GetComponent<SpriteRenderer> ().enabled = true;
 		//@@@@
@@ -55,6 +59,7 @@ public class pauseScript : MonoBehaviour {
 
 
 	void unPause () {
+		Camera.main.GetComponent<AudioSource>().volume = 0.51f;
 		toptime.SetActive(true);
 		GetComponent<SpriteRenderer> ().enabled = false;
 		//@@@@

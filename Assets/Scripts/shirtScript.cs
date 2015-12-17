@@ -11,10 +11,13 @@ public class shirtScript : MonoBehaviour {
 	public GameObject redscore;
 	public GameObject result;
 	public GameObject bb,bg,rb,rg;
+	public GameObject pressA;
+
 
 	// Use this for initialization
 	void Start () {
 
+		pressA.GetComponent<SpriteRenderer> ().enabled = false;
 		waterTotal = 0;
 		waterResult = 0;
 		bluescore.GetComponent<TextMesh> ().text = (" ");
@@ -47,6 +50,8 @@ public class shirtScript : MonoBehaviour {
 
 	public void Squish (){
 
+		pressA.GetComponent<SpriteRenderer> ().enabled = true;
+
 		KeyCode bbS = bb.GetComponent<BP1Mov> ().keySHOOT;
 		KeyCode bgS = bg.GetComponent<BP1Mov> ().keySHOOT;
 		KeyCode rbS = rb.GetComponent<BP1Mov> ().keySHOOT;
@@ -67,6 +72,8 @@ public class shirtScript : MonoBehaviour {
 		}
 		if (waterTotal <= 0) {
 
+			pressA.GetComponent<SpriteRenderer> ().enabled = false;
+
 			GameObject B = GameObject.Find("R-SHIRT");
 			GameObject R = GameObject.Find("B-SHIRT");
 
@@ -85,15 +92,56 @@ public class shirtScript : MonoBehaviour {
 			}
 
 			if (result.GetComponent<textFront>().blue == true && result.GetComponent<textFront>().red == true){
+				
+				GameObject[] bP = GameObject.FindGameObjectsWithTag ("Finish");
+		
+				GameObject[] rP = GameObject.FindGameObjectsWithTag ("Respawn");
 
 			if (B.GetComponent<shirtScript>().waterResult < R.GetComponent<shirtScript>().waterResult){
-				result.GetComponent<TextMesh> ().text = ("RED TEAM WON");
+				
+					//RED TEAM WON
+
+					foreach (GameObject p in bP) {
+						p.GetComponent<Animator>().SetInteger("State",3);
+					}
+					foreach (GameObject p in rP) {
+						p.GetComponent<Animator>().SetInteger("State",2);
+					}	
+
+					result.GetComponent<TextMesh> ().text = ("RED TEAM WON");
+					R.GetComponent<SpriteRenderer>().enabled = false;
+					B.GetComponent<SpriteRenderer>().enabled = false;
 			}
-				if (B.GetComponent<shirtScript>().waterResult > R.GetComponent<shirtScript>().waterResult){
+			
+			if (B.GetComponent<shirtScript>().waterResult > R.GetComponent<shirtScript>().waterResult){
+
+					//BLUE TEAM WON 
+
+					foreach (GameObject p in bP) {
+						p.GetComponent<Animator>().SetInteger("State",2);
+					}
+					foreach (GameObject p in rP) {
+						p.GetComponent<Animator>().SetInteger("State",3);
+					}	
+
 				result.GetComponent<TextMesh> ().text = ("BLUE TEAM WON");
+					R.GetComponent<SpriteRenderer>().enabled = false;
+					B.GetComponent<SpriteRenderer>().enabled = false;
 			}
 				if (B.GetComponent<shirtScript>().waterResult == R.GetComponent<shirtScript>().waterResult){
+
+					//DRAW
+
+					foreach (GameObject p in bP) {
+						p.GetComponent<Animator>().SetInteger("State",2);
+					}
+					foreach (GameObject p in rP) {
+						p.GetComponent<Animator>().SetInteger("State",2);
+					}	
+
 				result.GetComponent<TextMesh> ().text = ("DRAW");
+					R.GetComponent<SpriteRenderer>().enabled = false;
+					B.GetComponent<SpriteRenderer>().enabled = false;
 			}
 
 			}
