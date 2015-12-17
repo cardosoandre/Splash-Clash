@@ -7,7 +7,7 @@ public class FourStartButtonScript : MonoBehaviour {
 
 	public void onClick(){
 		Instantiate (buttonSound);
-		Application.LoadLevel("4 player prototype");
+		Application.LoadLevel("LoadingScreen");
 		//StartCoroutine (waitStart());
 
 		//Debug.Log ("clicked");

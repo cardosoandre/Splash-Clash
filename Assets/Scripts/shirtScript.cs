@@ -11,12 +11,11 @@ public class shirtScript : MonoBehaviour {
 	public GameObject redscore;
 	public GameObject result;
 	public GameObject bb,bg,rb,rg;
-	public bool noWater = false;
+
 
 	// Use this for initialization
 	void Start () {
 
-		noWater = false;
 		waterTotal = 0;
 		waterResult = 0;
 		bluescore.GetComponent<TextMesh> ().text = (" ");
@@ -68,8 +67,6 @@ public class shirtScript : MonoBehaviour {
 			}
 		}
 		if (waterTotal <= 0) {
-
-			noWater = true;
 
 			GameObject B = GameObject.Find("R-SHIRT");
 			GameObject R = GameObject.Find("B-SHIRT");
