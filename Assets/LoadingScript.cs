@@ -11,9 +11,8 @@ public class LoadingScript : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-		if(Application.GetStreamProgressForLevel("4 player prototype")==1){
-			Invoke ("loadlev",3);
-		}
+
+		Invoke ("loadlev",3);
 
 		/*
 
