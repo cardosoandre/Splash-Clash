@@ -7,7 +7,11 @@ public class InstructionsButtonScript : MonoBehaviour {
 	
 	public void onClick(){
 		Instantiate (buttonSound);
-		Debug.Log ("instr clicked");
+		Invoke ("loadLevel", 2.0f);
+	//	Debug.Log ("instr clicked");
+
+	}
+	void loadLevel(){
 		Application.LoadLevel("Instructions");
 	}
 }
