@@ -11,7 +11,8 @@ public class LoadingScript : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-		Application.LoadLevelAsync ("4 player prototype");
+
+		Invoke ("loadlev",3);
 
 		/*
 
@@ -22,6 +23,11 @@ public class LoadingScript : MonoBehaviour {
 */
 
 	}
+
+	void loadlev () {
+		Application.LoadLevel ("4 player prototype");
+	}
+
 
 
 
