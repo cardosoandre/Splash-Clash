@@ -18,6 +18,7 @@ public class timerTest : MonoBehaviour {
 	public bool paused = false;
 	public bool done = false;
 	public bool start = false;
+	public GameObject donesprite;
 
 	// Use this for initialization
 	void Start () {
@@ -85,6 +86,7 @@ public class timerTest : MonoBehaviour {
 				if (blackscreen == true) {
 
 					Instantiate (whistle, transform.position, transform.rotation);
+					Instantiate (donesprite, new Vector3 (0,0.6f,0), transform.rotation);
 					blackscreen = false;
 					//Instantiate (screen, new Vector3 (0, 0.65f, -0.5f), transform.rotation);
 					Invoke ("BlackS",3);
@@ -100,7 +102,7 @@ public class timerTest : MonoBehaviour {
 				}
 
 				//enable the squish
-				Invoke ("EnableSquish", 3.5f);
+				Invoke ("EnableSquish", 4f);
 				//show players
 				Invoke ("Players", 4f);
 

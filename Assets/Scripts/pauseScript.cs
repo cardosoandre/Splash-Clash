@@ -21,6 +21,10 @@ public class pauseScript : MonoBehaviour {
 			Application.LoadLevel ("Start Screen");
 		}
 
+		if (Input.GetKeyDown(KeyCode.E) && toptime.GetComponent<timerTest> ().done == true){
+			Application.LoadLevel ("Start Screen");
+		}
+
 		if (Input.GetKeyDown (KeyCode.R) && pause == true || 
 		    toptime.GetComponent<timerTest> ().done == true && Input.GetKeyDown (KeyCode.R)) {
 			Application.LoadLevel ("4 player prototype");
@@ -31,7 +35,9 @@ public class pauseScript : MonoBehaviour {
 
 			if (Input.GetKeyDown (KeyCode.Escape)) {
 				if (pause == false) {
+					if (toptime.GetComponent<timerTest>().start == true){
 					Pause ();
+					}
 				} else if (pause == true) {
 					unPause ();
 				}

@@ -6,13 +6,13 @@ public class LoadingScript : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 
+		Invoke ("loadlev",4);
+
 	}
 	
 	// Update is called once per frame
 	void Update () {
-
-
-		Invoke ("loadlev",3);
+	
 
 		/*
 

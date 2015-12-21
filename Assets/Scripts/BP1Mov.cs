@@ -300,6 +300,7 @@ public class BP1Mov : MonoBehaviour {
 		if (other.tag == ("Pump") && done == false && hasBalloon == false) {
 
 			other.SendMessage ("Key", keyFILL);
+			other.SendMessage ("Key2", keySHOOT);
 
 			if (gameObject.tag == ("Player") && faceRight == false) {
 				other.SendMessage ("OnArea");

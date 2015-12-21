@@ -12,11 +12,14 @@ public class shirtScript : MonoBehaviour {
 	public GameObject result;
 	public GameObject bb,bg,rb,rg;
 	public GameObject pressA;
-
+	public GameObject win;
+	public bool insta = false;
+	public bool fold = false;
 
 	// Use this for initialization
 	void Start () {
 
+		insta = false;
 		pressA.GetComponent<SpriteRenderer> ().enabled = false;
 		waterTotal = 0;
 		waterResult = 0;
@@ -49,6 +52,11 @@ public class shirtScript : MonoBehaviour {
 	}
 
 	public void Squish (){
+
+		if (fold == false) {
+			GetComponent<Animator> ().SetInteger ("State", 1);
+			fold = true;
+		}
 
 		pressA.GetComponent<SpriteRenderer> ().enabled = true;
 
@@ -101,6 +109,12 @@ public class shirtScript : MonoBehaviour {
 				
 					//RED TEAM WON
 
+					if(insta == false){
+						insta = true;
+						Instantiate (win, R.transform.position, R.transform.rotation);
+						
+					}
+
 					foreach (GameObject p in bP) {
 						p.GetComponent<Animator>().SetInteger("State",3);
 					}
@@ -116,6 +130,13 @@ public class shirtScript : MonoBehaviour {
 			if (B.GetComponent<shirtScript>().waterResult > R.GetComponent<shirtScript>().waterResult){
 
 					//BLUE TEAM WON 
+
+					if(insta == false){
+						insta = true;
+					Instantiate (win, B.transform.position, R.transform.rotation);
+
+					}
+				
 
 					foreach (GameObject p in bP) {
 						p.GetComponent<Animator>().SetInteger("State",2);
