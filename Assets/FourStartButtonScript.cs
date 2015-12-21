@@ -1,21 +1,24 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class FourStartButtonScript : MonoBehaviour {
+public class FourStartButtonScript : MonoBehaviour  { 
 
 	public GameObject buttonSound;
+	public GameObject hoverSound;
 
 	public void onClick(){
 		Instantiate (buttonSound);
-		Application.LoadLevel ("LoadingScreen");
-		//StartCoroutine (waitStart());
-
+		Invoke ("loadLevel", 2.0f);
 		//Debug.Log ("clicked");
 	}
-	/*
-	IEnumerator waitStart() {
-		yield return new WaitForSeconds(2);
-		Application.LoadLevel("4 player prototype");
+
+	public void OnPointerEnter(){ 
+		//Debug.Log ("hovering");
+		Instantiate (hoverSound);
 	}
-	*/
+
+	void loadLevel(){
+		Application.LoadLevel("LoadingScreen");
+	}
+
 }
