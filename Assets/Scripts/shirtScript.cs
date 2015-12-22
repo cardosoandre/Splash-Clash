@@ -105,6 +105,8 @@ public class shirtScript : MonoBehaviour {
 		
 				GameObject[] rP = GameObject.FindGameObjectsWithTag ("Respawn");
 
+				GameObject.Find("Press E").GetComponent<MeshRenderer>().enabled = true;
+
 			if (B.GetComponent<shirtScript>().waterResult < R.GetComponent<shirtScript>().waterResult){
 				
 					//RED TEAM WON

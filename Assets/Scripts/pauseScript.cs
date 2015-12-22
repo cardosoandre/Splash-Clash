@@ -6,6 +6,7 @@ public class pauseScript : MonoBehaviour {
 	private GameObject toptime;
 	public bool pause = false;
 	public GameObject bboy, bgirl, rboy, rgirl;
+	public GameObject text;
 
 	// Use this for initialization
 	void Start () {
@@ -48,8 +49,9 @@ public class pauseScript : MonoBehaviour {
 	}
 
 	void Pause () {
-		Camera.main.GetComponent<AudioSource>().volume = 0.12f;
+		Camera.main.GetComponent<AudioSource>().volume = 0.03f;
 		toptime.SetActive(false);
+		text.GetComponent<MeshRenderer> ().enabled = true;
 		GetComponent<SpriteRenderer> ().enabled = true;
 		//@@@@
 		bboy.GetComponent<BP1Mov>().enabled = false;
@@ -65,8 +67,9 @@ public class pauseScript : MonoBehaviour {
 
 
 	void unPause () {
-		Camera.main.GetComponent<AudioSource>().volume = 0.51f;
+		Camera.main.GetComponent<AudioSource>().volume = 0.11f;
 		toptime.SetActive(true);
+		text.GetComponent<MeshRenderer> ().enabled = false;
 		GetComponent<SpriteRenderer> ().enabled = false;
 		//@@@@
 		bboy.GetComponent<BP1Mov>().enabled = true;

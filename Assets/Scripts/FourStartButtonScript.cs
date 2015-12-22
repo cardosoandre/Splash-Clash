@@ -8,7 +8,7 @@ public class FourStartButtonScript : MonoBehaviour  {
 
 	public void onClick(){
 		Instantiate (buttonSound);
-		Invoke ("loadLevel", 2.0f);
+		Invoke ("loadLevel", 0.5f);
 		//Debug.Log ("clicked");
 	}
 
